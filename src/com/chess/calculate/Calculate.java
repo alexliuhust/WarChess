@@ -90,6 +90,8 @@ public class Calculate {
 		else 
 			left_armor = defender.ch_arm - attacker.ap;
 		
+		if (left_armor < 0) left_armor /= 2;
+		
 		return left_armor;
 	}
 }

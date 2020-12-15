@@ -3,7 +3,7 @@ package com.chess.model;
 public class Spearman extends Arm {
 
 	public Spearman(String alias_) {
-		name = "spearman";
+		name = "Spearman";
 		alias = alias_;
 		cost = 100;
 		scale = 100;
@@ -12,7 +12,7 @@ public class Spearman extends Arm {
 		ga = "g";
 		speed = 4;
 		
-		me_arm = 50;     
+		me_arm = 40;     
 		ra_arm = 50;
 		ch_arm = 80;
 		
