@@ -14,9 +14,9 @@ public class Calculate {
 			return;
 		
 		System.out.println("=======================================================");
-		System.out.println("\t\t" + attacker.name + " attacking " + defender.name + "\n");
-		System.out.println(attacker.name + " current:" + attacker.cur_scale);
-		System.out.println(defender.name + " current:" + defender.cur_scale);
+		System.out.println("\t\t" + attacker.alias + " attacking " + defender.alias + "\n");
+		System.out.println(attacker.alias + " current:" + attacker.cur_scale);
+		System.out.println(defender.alias + " current:" + defender.cur_scale);
 		
 		int attacker_dead = 0, defender_dead = 0;
 		int total_damage = attacker.dama * attacker.cur_scale;
@@ -31,7 +31,7 @@ public class Calculate {
 		
 		defender_dead = dead;
 		System.out.println("Main: total:" + total_damage + " armorleft:" + left_armor + 
-				" real:" + real_damage + " " + defender.name + " dead:" + defender_dead);
+				" real:" + real_damage + " " + defender.alias + " dead:" + defender_dead);
 		
 		// Determine whether there is a counter attack
 		if (attacker.type.equals("me")) {
@@ -44,8 +44,8 @@ public class Calculate {
 		if (attacker.cur_scale < 0) attacker.cur_scale = 0;
 		if (defender.cur_scale < 0) defender.cur_scale = 0;
 		
-		System.out.println(attacker.name + " left: " + attacker.cur_scale);
-		System.out.println(defender.name + " left: " + defender.cur_scale);
+		System.out.println(attacker.alias + " left: " + attacker.cur_scale);
+		System.out.println(defender.alias + " left: " + defender.cur_scale);
 		System.out.println("=======================================================");
 	}
 	
@@ -70,7 +70,7 @@ public class Calculate {
 		if (dead == 0) dead = 1;
 		
 		System.out.println("Coun: total:" + total_damage + " armorleft:" + left_armor + 
-				" real:" + real_damage + " " + attacker.name + " dead:" + dead);
+				" real:" + real_damage + " " + attacker.alias + " dead:" + dead);
 		
 		return dead;
 	}
@@ -89,7 +89,6 @@ public class Calculate {
 			left_armor = defender.ra_arm - attacker.ap;
 		else 
 			left_armor = defender.ch_arm - attacker.ap;
-		if (left_armor < 0) left_armor = 0;
 		
 		return left_armor;
 	}
