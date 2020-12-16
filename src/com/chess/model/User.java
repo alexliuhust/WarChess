@@ -15,10 +15,34 @@ public class User {
 		this.username = name;
 	}
 	
+	public List<String[]> getSortedItems() {
+		List<String[]> list = new ArrayList<>();
+		for (String armName : troop.keySet()) {
+			String[] item = new String[6];
+			item[0] = armName;
+			Arm arm = troop.get(armName);
+			item[1] = arm.name;
+			item[2] = arm.showCurrentScale();
+			item[3] = String.valueOf(arm.speed);
+			item[4] = String.valueOf(arm.range);
+			item[5] = arm.ga;
+			list.add(item);
+		}
+		Collections.sort(list, (a, b) -> {
+			return a[0].compareTo(b[0]);
+		});
+		
+		return list;
+	}
+	
 	public void getInfo() {
 		System.out.println("User " + username + " has troop:");
-		for (String armName : troop.keySet()) {
-			System.out.println(troop.get(armName));
+		List<String[]> list = this.getSortedItems();
+		for (String[] item : list) {
+			for (String s : item) {
+				System.out.print(s + "|");
+			}
+			System.out.println();
 		}
 	}
 	
@@ -30,6 +54,9 @@ public class User {
 		this.troop.remove(alias);
 	}
 	
+	public boolean hasNoArm() {
+		return this.troop.isEmpty();
+	}
 	
 	@Override
 	public String toString() {

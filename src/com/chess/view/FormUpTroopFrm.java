@@ -102,6 +102,11 @@ public class FormUpTroopFrm extends JFrame {
 		});
 		
 		JButton btnNewButton_6 = new JButton("PLAY");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openPlayGround(e);
+			}
+		});
 		btnNewButton_6.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -208,6 +213,14 @@ public class FormUpTroopFrm extends JFrame {
 	}
 	// -------------------------------------------------------------------------------------------------------
 	
+	private void openPlayGround(ActionEvent event) {
+		if (p1.hasNoArm() || p2.hasNoArm()) {
+			JOptionPane.showMessageDialog(null, "Each player has to choose at least one arm!");
+			return;
+		}
+		dispose();
+		new PlayGround(p1, p2).setVisible(true);
+	}
 	
 	private void playerDeleteSelectedArm(JTable pArmsTable,User p) {
 		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
@@ -243,15 +256,15 @@ public class FormUpTroopFrm extends JFrame {
 		p.getInfo();
 	}
 
-	private void p2deleteSelectedArm(ActionEvent e) {
+	private void p2deleteSelectedArm(ActionEvent event) {
 		playerDeleteSelectedArm(p2ArmsTable, p2);
 	}
 	
-	private void p1deleteSelectedArm(ActionEvent e) {
+	private void p1deleteSelectedArm(ActionEvent event) {
 		playerDeleteSelectedArm(p1ArmsTable, p1);
 	}
 
-	private void p2addAnArmToTable(ActionEvent e) {
+	private void p2addAnArmToTable(ActionEvent event) {
 		playerAddArm(p2Alias, p2ArmsTable, p2ArmJcb, p2);
 	}
 	
