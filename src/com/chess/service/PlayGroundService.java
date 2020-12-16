@@ -15,6 +15,11 @@ import com.chess.util.StringUtil;
 
 public class PlayGroundService {
 	
+	public static void checkTotalDestruction(User pAtt, User pDef, Arm attacker, Arm defender) {
+		if (attacker.cur_scale == 0) pAtt.removeArm(attacker.alias);
+		if (defender.cur_scale == 0) pDef.removeArm(defender.alias);
+	}
+	
 	public static void p2Attackp1(ActionEvent event,
 			JTextField p1CbAliasTxt,JTextField p1CbNameTxt,JTextField p1CbCurTxt,
 			JTextField p1CbSpTxt,JTextField p1CbRaTxt,JTextField p1CbGATxt,
@@ -32,6 +37,8 @@ public class PlayGroundService {
 		Arm attacker = p2.troop.get(alias);
 		
 		Calculate.mainAttack(attacker, defender);
+		//checkTotalDestruction(p2, p1, attacker, defender);
+		
 		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, defender);
 		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, attacker);
 		fillArmsTables(p1ArmsTable, p2ArmsTable, p1, p2);
@@ -53,6 +60,8 @@ public class PlayGroundService {
 		Arm defender = p2.troop.get(alias);
 		
 		Calculate.mainAttack(attacker, defender);
+		//checkTotalDestruction(p1, p2, attacker, defender);
+		
 		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, attacker);
 		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, defender);
 		fillArmsTables(p1ArmsTable, p2ArmsTable, p1, p2);
