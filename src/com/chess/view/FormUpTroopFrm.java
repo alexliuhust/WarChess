@@ -184,24 +184,7 @@ public class FormUpTroopFrm extends JFrame {
 		Vector<Object> v = new Vector<>();
 		String alias = pAlias.getText();
 		Arm target = (Arm) pArmJcb.getSelectedItem();
-		Arm arm = new Arm();
-		arm.name = target.name;
-		arm.alias = alias;
-		arm.cost = target.cost;
-		arm.scale = target.scale;
-		arm.cur_scale = target.cur_scale;
-		arm.uhp   = target.uhp;   
-		arm.ga    = target.ga;    
-		arm.speed = target.speed; 
-		arm.me_arm= target.me_arm;
-		arm.ra_arm= target.ra_arm;
-		arm.ch_arm= target.ch_arm;
-		arm.dama  = target.dama;  
-		arm.ap    = target.ap;    
-		arm.type  = target.type;  
-		arm.range = target.range; 
-		arm.d_dama= target.d_dama;
-		arm.d_ap  = target.d_ap;  
+		Arm arm = new Arm(target, alias);
 		
 		if (StringUtil.isEmpty(alias)) {
 			JOptionPane.showMessageDialog(null, "Alias cannot be empty!");
@@ -219,7 +202,6 @@ public class FormUpTroopFrm extends JFrame {
 		
 		p.getInfo();
 	}
-	
 	
 	private void p2addAnArmToTable(ActionEvent e) {
 		playerAddArm(p2Alias, p2ArmsTable, p2ArmJcb, p2);
