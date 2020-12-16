@@ -21,4 +21,14 @@ public class User {
 			System.out.println(troop.get(armName));
 		}
 	}
+	
+	public void addArm(String alias, Arm arm) {
+		this.troop.put(alias, arm);
+	}
+	@Override
+	public String toString() {
+		return this.username;
+	}
+	
+	
 }
