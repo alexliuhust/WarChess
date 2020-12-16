@@ -1,6 +1,7 @@
 package com.chess.test;
 
 import com.chess.calculate.Calculate;
+import com.chess.data.*;
 import com.chess.model.*;
 
 

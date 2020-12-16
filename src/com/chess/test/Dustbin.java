@@ -1,13 +1,13 @@
 package com.chess.test;
 
 import com.chess.calculate.Calculate;
-import com.chess.model.Archer;
+import com.chess.data.Archer;
+import com.chess.data.Longbowman;
+import com.chess.data.RangeRider;
+import com.chess.data.ShockCavalry;
+import com.chess.data.Spearman;
+import com.chess.data.Swordsman;
 import com.chess.model.Arm;
-import com.chess.model.Longbowman;
-import com.chess.model.RangeRider;
-import com.chess.model.ShockCavalry;
-import com.chess.model.Spearman;
-import com.chess.model.Swordsman;
 import com.chess.model.User;
 
 public class Dustbin {

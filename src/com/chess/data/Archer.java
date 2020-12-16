@@ -1,4 +1,6 @@
-package com.chess.model;
+package com.chess.data;
+
+import com.chess.model.Arm;
 
 public class Archer extends Arm {
 	
