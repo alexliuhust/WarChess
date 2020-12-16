@@ -15,8 +15,8 @@ public class Calculate {
 		
 		System.out.println("=======================================================");
 		System.out.println("\t\t" + attacker.alias + " attacking " + defender.alias + "\n");
-		System.out.println(attacker.alias + " current:" + attacker.cur_scale);
-		System.out.println(defender.alias + " current:" + defender.cur_scale);
+		System.out.println(attacker.alias + " current:" + attacker.cur_scale + "\t" + attacker.showCurrentScale());
+		System.out.println(defender.alias + " current:" + defender.cur_scale + "\t" + defender.showCurrentScale());
 		
 		int attacker_dead = 0, defender_dead = 0;
 		int total_damage = attacker.dama * attacker.cur_scale;
@@ -44,8 +44,8 @@ public class Calculate {
 		if (attacker.cur_scale < 0) attacker.cur_scale = 0;
 		if (defender.cur_scale < 0) defender.cur_scale = 0;
 		
-		System.out.println(attacker.alias + " left: " + attacker.cur_scale);
-		System.out.println(defender.alias + " left: " + defender.cur_scale);
+		System.out.println(attacker.alias + " left: " + attacker.cur_scale + "\t" + attacker.showCurrentScale());
+		System.out.println(defender.alias + " left: " + defender.cur_scale + "\t" + defender.showCurrentScale());
 		System.out.println("=======================================================");
 	}
 	

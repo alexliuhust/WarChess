@@ -1,5 +1,7 @@
 package com.chess.model;
 
+import java.util.Arrays;
+
 public class Arm {
 	
 	public String name;
@@ -49,9 +51,24 @@ public class Arm {
 		this.d_dama    = target.d_dama;       
 		this.d_ap      = target.d_ap;         
 	}
-	
+
+	public String showCurrentScale() {
+		int num = this.cur_scale * 10 / this.scale;
+		if (this.cur_scale * 10 % this.scale != 0) 
+			num++;
+		
+		int percent = this.cur_scale * 100 / this.scale;
+		char[] bar = new char[10];
+		Arrays.fill(bar, '.');
+		for (int i = 0; i < num; i++) {
+			bar[i] = '|';
+		}
+		return percent + "% " + "[" + String.valueOf(bar) + "]" + 
+			"(" + this.cur_scale + ")";
+	}
 	@Override
 	public String toString() {
 		return "[" + alias + "-" + name + ", scale=" + scale + "]";
 	}
+	
 }

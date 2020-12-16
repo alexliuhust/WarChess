@@ -42,7 +42,7 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-		swords_assassin(10);
+		spear_assassin(10);
 	}
 	
 
