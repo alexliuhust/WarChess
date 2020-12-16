@@ -67,7 +67,7 @@ public class UsersFrm extends JFrame {
 		JButton btnNewButton_1 = new JButton("Play");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserService.startPlayActionPerformed(e);
+				startPlayActionPerformed(e);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
@@ -119,18 +119,10 @@ public class UsersFrm extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 		
-		UserService.fillUserJcb();
+		UserService.fillUserJcb(player1Jcb, player2Jcb);
+	}
+
+	private void startPlayActionPerformed(ActionEvent e) {
+		UserService.startPlayActionPerformed(e, player1Jcb, player2Jcb, this);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

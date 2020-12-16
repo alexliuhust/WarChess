@@ -8,22 +8,19 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
-import com.chess.data.ArmList;
 import com.chess.model.Arm;
 import com.chess.model.User;
-import com.chess.util.StringUtil;
+import com.chess.service.FormUpService;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
-import java.util.Vector;
 import java.awt.event.ActionEvent;
 
 public class FormUpTroopFrm extends JFrame {
@@ -69,7 +66,7 @@ public class FormUpTroopFrm extends JFrame {
 		JButton btnNewButton = new JButton("Confirm");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p1addAnArmToTable(e);
+				FormUpService.p1addAnArmToTable(e, p1Alias, p1ArmsTable, p1ArmJcb, player1);
 			}
 		});
 		
@@ -79,7 +76,7 @@ public class FormUpTroopFrm extends JFrame {
 		JButton btnNewButton_1 = new JButton("Confirm");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p2addAnArmToTable(e);
+				FormUpService.p2addAnArmToTable(e, p2Alias, p2ArmsTable, p2ArmJcb, player2);
 			}
 		});
 		
@@ -90,14 +87,14 @@ public class FormUpTroopFrm extends JFrame {
 		JButton btnNewButton_2 = new JButton("Delete");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p1deleteSelectedArm(e);
+				FormUpService.p1deleteSelectedArm(e, p1ArmsTable, player1);
 			}
 		});
 		
 		JButton btnNewButton_4 = new JButton("Delete");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p2deleteSelectedArm(e);
+				FormUpService.p2deleteSelectedArm(e, p2ArmsTable, player2);
 			}
 		});
 		
@@ -175,13 +172,7 @@ public class FormUpTroopFrm extends JFrame {
 		);
 		
 		p2ArmsTable = new JTable();
-		p2ArmsTable.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Alias", "Name"
-			}
-		) {
+		p2ArmsTable.setModel(new DefaultTableModel(new Object[][] {},new String[] {"Alias", "Name"}) {
 			boolean[] columnEditables = new boolean[] {
 				false, false
 			};
@@ -192,13 +183,7 @@ public class FormUpTroopFrm extends JFrame {
 		scrollPane_1.setViewportView(p2ArmsTable);
 		
 		p1ArmsTable = new JTable();
-		p1ArmsTable.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Alias", "Name"
-			}
-		) {
+		p1ArmsTable.setModel(new DefaultTableModel(new Object[][] {},new String[] {"Alias", "Name"}) {
 			boolean[] columnEditables = new boolean[] {
 				false, false
 			};
@@ -209,75 +194,11 @@ public class FormUpTroopFrm extends JFrame {
 		scrollPane.setViewportView(p1ArmsTable);
 		contentPane.setLayout(gl_contentPane);
 		
-		fillUserJcb();
+		FormUpService.fillUserJcb(p1ArmJcb, p2ArmJcb);
 	}
-	// -------------------------------------------------------------------------------------------------------
 	
 	private void openPlayGround(ActionEvent event) {
-		if (p1.hasNoArm() || p2.hasNoArm()) {
-			JOptionPane.showMessageDialog(null, "Each player has to choose at least one arm!");
-			return;
-		}
-		dispose();
-		new PlayGround(p1, p2).setVisible(true);
-	}
-	
-	private void playerDeleteSelectedArm(JTable pArmsTable,User p) {
-		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
-		int[] rows = pArmsTable.getSelectedRows();
-		for(int i = 0; i < rows.length; i++) {
-			String alias = (String) pArmsTable.getValueAt(rows[i], 0);
-			p.removeArm(alias);
-		}
-		for(int i = 0; i < rows.length; i++) {
-			dtm.removeRow(rows[i]-i);
-		}
-		p.getInfo();
-	}
-	
-	private void playerAddArm(JTextField pAlias, JTable pArmsTable, JComboBox<Arm> pArmJcb, User p) {
-		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
-		Vector<String> v = new Vector<>();
-		String alias = pAlias.getText();
-		Arm target = (Arm) pArmJcb.getSelectedItem();
-		Arm arm = new Arm(target, alias);
-		
-		if (StringUtil.isEmpty(alias)) {
-			JOptionPane.showMessageDialog(null, "Alias cannot be empty!");
-			return;
-		}else if (p.troop.containsKey(alias)) {
-			JOptionPane.showMessageDialog(null, "Alias has to be unique!");
-			return;
-		}
-		p.addArm(alias, arm);
-		v.add(alias);
-		v.add(arm.name);
-		dtm.addRow(v);
-		p.getInfo();
-	}
-
-	private void p2deleteSelectedArm(ActionEvent event) {
-		playerDeleteSelectedArm(p2ArmsTable, p2);
-	}
-	
-	private void p1deleteSelectedArm(ActionEvent event) {
-		playerDeleteSelectedArm(p1ArmsTable, p1);
-	}
-
-	private void p2addAnArmToTable(ActionEvent event) {
-		playerAddArm(p2Alias, p2ArmsTable, p2ArmJcb, p2);
-	}
-	
-	private void p1addAnArmToTable(ActionEvent event) {
-		playerAddArm(p1Alias, p1ArmsTable, p1ArmJcb, p1);
-	}
-
-	private void fillUserJcb() {
-		ArmList armList = new ArmList();
-		for (Arm arm : armList.getList()) {
-			p1ArmJcb.addItem(arm);
-			p2ArmJcb.addItem(arm);
-		}
+		FormUpService.openPlayGround(event, p1, p2, this);
 	}
 }
 

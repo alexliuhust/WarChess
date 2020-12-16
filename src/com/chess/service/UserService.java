@@ -11,13 +11,10 @@ import com.chess.view.FormUpTroopFrm;
 import com.chess.view.UsersFrm;
 
 public class UserService {
-
-	public static JComboBox<User> player1Jcb;
-	public static JComboBox<User> player2Jcb;
-	public static UsersFrm usersFrm;
 	
 	
-	public static void startPlayActionPerformed(ActionEvent event) {
+	public static void startPlayActionPerformed(ActionEvent event, 
+			JComboBox<User> player1Jcb, JComboBox<User> player2Jcb, UsersFrm usersFrm) {
 		User p1 = (User) player1Jcb.getSelectedItem();
 		User p2 = (User) player2Jcb.getSelectedItem();
 		if (p1.username.equals(p2.username)) {
@@ -29,7 +26,7 @@ public class UserService {
 		
 	}
 
-	public static void fillUserJcb() {
+	public static void fillUserJcb(JComboBox<User> player1Jcb, JComboBox<User> player2Jcb) {
 		UserList userList = new UserList();
 		for (User user : userList.getList()) {
 			player1Jcb.addItem(user);

@@ -1,33 +1,29 @@
 package com.chess.view;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.chess.calculate.Calculate;
-import com.chess.model.Arm;
 import com.chess.model.User;
-import com.chess.util.StringUtil;
-
-import javax.swing.border.TitledBorder;
-import javax.swing.border.EtchedBorder;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import com.chess.service.PlayGroundService;
 
 public class PlayGround extends JFrame {
 
@@ -82,7 +78,10 @@ public class PlayGround extends JFrame {
 		JButton btnNewButton = new JButton("==>>");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p1Attackp2(e);
+				PlayGroundService.p1Attackp2(e, 
+				p1CbAliasTxt, p1CbNameTxt, p1CbCurTxt, p1CbSpTxt, p1CbRaTxt, p1CbGATxt, 
+				p2CbAliasTxt, p2CbNameTxt, p2CbCurTxt, p2CbSpTxt, p2CbRaTxt, p2CbGATxt, 
+				p1ArmsTable, p2ArmsTable, p1, p2);
 			}
 		});
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
@@ -90,7 +89,10 @@ public class PlayGround extends JFrame {
 		JButton btnNewButton_1 = new JButton("<<==");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p2Attackp1(e);
+				PlayGroundService.p2Attackp1(e, 
+				p1CbAliasTxt, p1CbNameTxt, p1CbCurTxt, p1CbSpTxt, p1CbRaTxt, p1CbGATxt, 
+				p2CbAliasTxt, p2CbNameTxt, p2CbCurTxt, p2CbSpTxt, p2CbRaTxt, p2CbGATxt, 
+				p1ArmsTable, p2ArmsTable, p1, p2);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
@@ -280,7 +282,8 @@ public class PlayGround extends JFrame {
 		p2ArmsTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				getP2SelectedArm(e);
+				PlayGroundService.getP2SelectedArm(e, 
+				p2CbAliasTxt, p2CbNameTxt, p2CbCurTxt, p2CbSpTxt, p2CbRaTxt, p2CbGATxt, p2ArmsTable, p2);
 			}
 		});
 		p2ArmsTable.setModel(new DefaultTableModel(new Object[][] {},
@@ -305,7 +308,8 @@ public class PlayGround extends JFrame {
 		p1ArmsTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				getP1SelectedArm(e);
+				PlayGroundService.getP1SelectedArm(e, 
+				p1CbAliasTxt, p1CbNameTxt, p1CbCurTxt, p1CbSpTxt, p1CbRaTxt, p1CbGATxt, p1ArmsTable, p1);
 			}
 		});
 		p1ArmsTable.setModel(new DefaultTableModel(new Object[][] {},
@@ -328,83 +332,7 @@ public class PlayGround extends JFrame {
 		
 		contentPane.setLayout(gl_contentPane);
 		
-		fillArmsTables();
+		PlayGroundService.fillArmsTables(p1ArmsTable, p2ArmsTable, p1, p2);
 	}
 	
-
-
-	
-	
-	
-	
-	
-	private void p2Attackp1(ActionEvent event) {
-		if (StringUtil.isEmpty(p1CbAliasTxt.getText()) || StringUtil.isEmpty(p2CbAliasTxt.getText())) {
-			JOptionPane.showMessageDialog(null, "Please select a record!");
-			return;
-		}
-		String alias = p1CbAliasTxt.getText();
-		Arm defender = p1.troop.get(alias);
-		alias = p2CbAliasTxt.getText();
-		Arm attacker = p2.troop.get(alias);
-		
-		Calculate.mainAttack(attacker, defender);
-		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, defender);
-		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, attacker);
-		fillArmsTables();
-	}
-
-	private void p1Attackp2(ActionEvent event) {
-		if (StringUtil.isEmpty(p1CbAliasTxt.getText()) || StringUtil.isEmpty(p2CbAliasTxt.getText())) {
-			JOptionPane.showMessageDialog(null, "Please select a record!");
-			return;
-		}
-		String alias = p1CbAliasTxt.getText();
-		Arm attacker = p1.troop.get(alias);
-		alias = p2CbAliasTxt.getText();
-		Arm defender = p2.troop.get(alias);
-		
-		Calculate.mainAttack(attacker, defender);
-		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, attacker);
-		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, defender);
-		fillArmsTables();
-	}
-
-	private void fillCombatInfoPane(JTextField pCbAliasTxt,JTextField pCbNameTxt,JTextField pCbCurTxt,
-		JTextField pCbSpTxt,JTextField pCbRaTxt,JTextField pCbGATxt,Arm arm) {
-		
-		pCbAliasTxt.setText(arm.alias);
-		pCbNameTxt.setText(arm.name);
-		pCbCurTxt.setText(arm.showCurrentScale());
-		pCbSpTxt.setText(String.valueOf(arm.speed));
-		pCbRaTxt.setText(String.valueOf(arm.range));
-		pCbGATxt.setText(arm.ga);
-	}
-	
-	private void getP2SelectedArm(MouseEvent e) {
-		int row = p2ArmsTable.getSelectedRow();
-		String alias = (String) p2ArmsTable.getValueAt(row, 0);
-		Arm arm = p2.troop.get(alias);
-		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, arm);
-	}
-
-	private void getP1SelectedArm(MouseEvent e) {
-		int row = p1ArmsTable.getSelectedRow();
-		String alias = (String) p1ArmsTable.getValueAt(row, 0);
-		Arm arm = p1.troop.get(alias);
-		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, arm);
-	}
-
-	private void fillArmsTables() {
-		DefaultTableModel dtm = (DefaultTableModel) p1ArmsTable.getModel();
-		dtm.setRowCount(0); // Clear table
-		for (String[] item : p1.getSortedItems()) {
-			dtm.addRow(item);
-		}
-		dtm = (DefaultTableModel) p2ArmsTable.getModel();
-		dtm.setRowCount(0); // Clear table
-		for (String[] item : p2.getSortedItems()) {
-			dtm.addRow(item);
-		}
-	}
 }
