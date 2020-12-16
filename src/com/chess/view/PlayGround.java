@@ -8,6 +8,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -15,13 +16,18 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import com.chess.calculate.Calculate;
 import com.chess.model.Arm;
 import com.chess.model.User;
+import com.chess.util.StringUtil;
+
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PlayGround extends JFrame {
 
@@ -74,9 +80,19 @@ public class PlayGround extends JFrame {
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Player 2", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		JButton btnNewButton = new JButton("==>>");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				p1Attackp2(e);
+			}
+		});
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
 		
 		JButton btnNewButton_1 = new JButton("<<==");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				p2Attackp1(e);
+			}
+		});
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -315,8 +331,45 @@ public class PlayGround extends JFrame {
 		fillArmsTables();
 	}
 	
+
+
 	
 	
+	
+	
+	
+	private void p2Attackp1(ActionEvent event) {
+		if (StringUtil.isEmpty(p1CbAliasTxt.getText()) || StringUtil.isEmpty(p2CbAliasTxt.getText())) {
+			JOptionPane.showMessageDialog(null, "Please select a record!");
+			return;
+		}
+		String alias = p1CbAliasTxt.getText();
+		Arm defender = p1.troop.get(alias);
+		alias = p2CbAliasTxt.getText();
+		Arm attacker = p2.troop.get(alias);
+		
+		Calculate.mainAttack(attacker, defender);
+		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, defender);
+		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, attacker);
+		fillArmsTables();
+	}
+
+	private void p1Attackp2(ActionEvent event) {
+		if (StringUtil.isEmpty(p1CbAliasTxt.getText()) || StringUtil.isEmpty(p2CbAliasTxt.getText())) {
+			JOptionPane.showMessageDialog(null, "Please select a record!");
+			return;
+		}
+		String alias = p1CbAliasTxt.getText();
+		Arm attacker = p1.troop.get(alias);
+		alias = p2CbAliasTxt.getText();
+		Arm defender = p2.troop.get(alias);
+		
+		Calculate.mainAttack(attacker, defender);
+		fillCombatInfoPane(p1CbAliasTxt,p1CbNameTxt,p1CbCurTxt,p1CbSpTxt,p1CbRaTxt,p1CbGATxt, attacker);
+		fillCombatInfoPane(p2CbAliasTxt,p2CbNameTxt,p2CbCurTxt,p2CbSpTxt,p2CbRaTxt,p2CbGATxt, defender);
+		fillArmsTables();
+	}
+
 	private void fillCombatInfoPane(JTextField pCbAliasTxt,JTextField pCbNameTxt,JTextField pCbCurTxt,
 		JTextField pCbSpTxt,JTextField pCbRaTxt,JTextField pCbGATxt,Arm arm) {
 		
@@ -355,22 +408,3 @@ public class PlayGround extends JFrame {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,25 +1,22 @@
 package com.chess.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.chess.data.UserList;
-import com.chess.model.User;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import java.awt.Font;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
+
+import com.chess.model.User;
+import com.chess.service.UserService;
 
 public class UsersFrm extends JFrame {
 
@@ -70,7 +67,7 @@ public class UsersFrm extends JFrame {
 		JButton btnNewButton_1 = new JButton("Play");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				startPlayActionPerformed(e);
+				UserService.startPlayActionPerformed(e);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
@@ -122,33 +119,8 @@ public class UsersFrm extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 		
-		
-		
-		fillUserJcb();
+		UserService.fillUserJcb();
 	}
-	// -------------------------------------------------------------------------------------------------------
-	
-	
-	private void startPlayActionPerformed(ActionEvent event) {
-		User p1 = (User) player1Jcb.getSelectedItem();
-		User p2 = (User) player2Jcb.getSelectedItem();
-		if (p1.username.equals(p2.username)) {
-			JOptionPane.showMessageDialog(null, "Two Users cannot be identical!");
-			return;
-		}
-		dispose();
-		new FormUpTroopFrm(p1, p2).setVisible(true);
-		
-	}
-
-	private void fillUserJcb() {
-		UserList userList = new UserList();
-		for (User user : userList.getList()) {
-			player1Jcb.addItem(user);
-			player2Jcb.addItem(user);
-		}
-	}
-	
 }
 
 
