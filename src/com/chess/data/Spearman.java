@@ -7,7 +7,7 @@ public class Spearman extends Arm {
 	public Spearman(String alias_) {
 		name = "Spearman";
 		alias = alias_;
-		cost = 100;
+		cost = 190;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    

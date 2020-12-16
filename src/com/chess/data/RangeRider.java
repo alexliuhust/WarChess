@@ -7,7 +7,7 @@ public class RangeRider extends Arm {
 	public RangeRider(String alias_) {
 		name = "RangeRider";
 		alias = alias_;
-		cost = 220;
+		cost = 250;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 100;

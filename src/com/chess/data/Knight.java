@@ -7,14 +7,14 @@ public class Knight extends Arm {
 	public Knight(String alias_) {
 		name = "Knight";
 		alias = alias_;
-		cost = 300;
+		cost = 280;
 		scale = 30;
 		cur_scale = 30;   
-		uhp = 130;
+		uhp = 150;
 		ga = "g";
 		speed = 5;
 		
-		me_arm = 100;
+		me_arm = 80;
 		ra_arm = 80;
 		ch_arm = 80;
 		

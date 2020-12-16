@@ -54,28 +54,35 @@ public class PlayGround extends JFrame {
 		this.p1 = p1;
 		this.p2 = p2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 685, 813);
+		setBounds(100, 100, 685, 692);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("P1");
+		JLabel lblNewLabel = new JLabel(p1.username);
+		lblNewLabel.setBounds(24, 97, 94, 25);
 		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(128, 25, 519, 186);
 		
-		JLabel lblP = new JLabel("P2");
+		JLabel lblP = new JLabel(p2.username);
+		lblP.setBounds(21, 301, 97, 25);
 		lblP.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(128, 217, 519, 186);
 		
 		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "Player 1", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		panel.setBounds(32, 434, 252, 190);
+		panel.setBorder(new TitledBorder(null, p1.username, TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Player 2", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(382, 434, 252, 190);
+		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), p2.username, TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		JButton btnNewButton = new JButton("==>>");
+		btnNewButton.setBounds(290, 491, 84, 31);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlayGroundService.p1Attackp2(e, 
@@ -87,6 +94,7 @@ public class PlayGround extends JFrame {
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
 		
 		JButton btnNewButton_1 = new JButton("<<==");
+		btnNewButton_1.setBounds(290, 532, 86, 31);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlayGroundService.p2Attackp1(e, 
@@ -96,63 +104,6 @@ public class PlayGround extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(19)
-							.addComponent(lblNewLabel)
-							.addGap(18)
-							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblP)
-							.addGap(18)
-							.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 587, GroupLayout.PREFERRED_SIZE)))
-					.addGap(21))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(27)
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(36, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(20)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(92)
-							.addComponent(lblNewLabel)))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(84)
-							.addComponent(lblP, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(31)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(panel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(88)
-							.addComponent(btnNewButton)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(145, Short.MAX_VALUE))
-		);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Alias");
 		lblNewLabel_1_1.setBounds(33, 27, 28, 18);
@@ -330,9 +281,16 @@ public class PlayGround extends JFrame {
 		p1ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(20);
 		scrollPane.setViewportView(p1ArmsTable);
 		
-		contentPane.setLayout(gl_contentPane);
-		
 		PlayGroundService.fillArmsTables(p1ArmsTable, p2ArmsTable, p1, p2);
+		contentPane.setLayout(null);
+		contentPane.add(lblNewLabel);
+		contentPane.add(scrollPane);
+		contentPane.add(lblP);
+		contentPane.add(scrollPane_1);
+		contentPane.add(panel);
+		contentPane.add(btnNewButton_1);
+		contentPane.add(btnNewButton);
+		contentPane.add(panel_1);
 	}
 	
 }

@@ -7,7 +7,7 @@ public class Longbowman extends Arm {
 	public Longbowman(String alias_) {
 		name = "Longbowman";
 		alias = alias_;
-		cost = 150;
+		cost = 210;
 		scale = 40;
 		cur_scale = 40;   
 		uhp = 50;
@@ -23,7 +23,7 @@ public class Longbowman extends Arm {
 		type = "ra";
 		range = 9;
 		
-		d_dama = 0;
+		d_dama = 8;
 		d_ap = 0;
 	}
 }

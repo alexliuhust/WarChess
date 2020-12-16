@@ -7,7 +7,7 @@ public class Assassin extends Arm {
 	public Assassin(String alias_) {
 		name = "Assassin";
 		alias = alias_;
-		cost = 150;
+		cost = 200;
 		scale = 80;
 		cur_scale = 80;   
 		uhp = 40;    

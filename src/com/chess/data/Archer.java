@@ -7,7 +7,7 @@ public class Archer extends Arm {
 	public Archer(String alias_) {
 		name = "Archer";
 		alias = alias_;
-		cost = 120;
+		cost = 180;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;

@@ -7,7 +7,7 @@ public class Swordsman extends Arm {
 	public Swordsman(String alias_) {
 		name = "Swordsman";
 		alias = alias_;
-		cost = 100;
+		cost = 170;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    

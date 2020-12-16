@@ -7,7 +7,7 @@ public class ShockCavalry extends Arm {
 	public ShockCavalry(String alias_) {
 		name = "ShockCavalry";
 		alias = alias_;
-		cost = 300;
+		cost = 310;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 130;

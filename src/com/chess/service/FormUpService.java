@@ -27,20 +27,24 @@ public class FormUpService {
 		new PlayGround(p1, p2).setVisible(true);
 	}
 	
-	public static void playerDeleteSelectedArm(JTable pArmsTable,User p) {
+	public static void playerDeleteSelectedArm(JTable pArmsTable,User p,JTextField pTcTxt) {
 		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
 		int[] rows = pArmsTable.getSelectedRows();
+		
+		Integer cur_cost = Integer.parseInt(pTcTxt.getText());
 		for(int i = 0; i < rows.length; i++) {
 			String alias = (String) pArmsTable.getValueAt(rows[i], 0);
+			cur_cost -= p.troop.get(alias).cost;
 			p.removeArm(alias);
 		}
 		for(int i = 0; i < rows.length; i++) {
 			dtm.removeRow(rows[i]-i);
 		}
 		p.getInfo();
+		pTcTxt.setText(String.valueOf(cur_cost));
 	}
 	
-	public static void playerAddArm(JTextField pAlias, JTable pArmsTable, JComboBox<Arm> pArmJcb, User p) {
+	public static void playerAddArm(JTextField pAlias, JTable pArmsTable, JComboBox<Arm> pArmJcb, User p, JTextField pTcTxt) {
 		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
 		Vector<String> v = new Vector<>();
 		String alias = pAlias.getText();
@@ -59,26 +63,30 @@ public class FormUpService {
 		v.add(arm.name);
 		dtm.addRow(v);
 		p.getInfo();
+		
+		Integer cur_cost = Integer.parseInt(pTcTxt.getText());
+		cur_cost += arm.cost;
+		pTcTxt.setText(String.valueOf(cur_cost));
 	}
 
-	public static void p2deleteSelectedArm(ActionEvent event, JTable p2ArmsTable, User p2) {
-		playerDeleteSelectedArm(p2ArmsTable, p2);
+	public static void p2deleteSelectedArm(ActionEvent event, JTable p2ArmsTable, User p2, JTextField p2TcTxt) {
+		playerDeleteSelectedArm(p2ArmsTable, p2, p2TcTxt);
 	}
 	
-	public static void p1deleteSelectedArm(ActionEvent event, JTable p1ArmsTable, User p1) {
-		playerDeleteSelectedArm(p1ArmsTable, p1);
+	public static void p1deleteSelectedArm(ActionEvent event, JTable p1ArmsTable, User p1, JTextField p1TcTxt) {
+		playerDeleteSelectedArm(p1ArmsTable, p1, p1TcTxt);
 	}
 
 	public static void p2addAnArmToTable(ActionEvent event, 
-			JTextField p2Alias, JTable p2ArmsTable, JComboBox<Arm> p2ArmJcb, User p2) {
+			JTextField p2Alias, JTable p2ArmsTable, JComboBox<Arm> p2ArmJcb, User p2, JTextField p2TcTxt) {
 		
-		playerAddArm(p2Alias, p2ArmsTable, p2ArmJcb, p2);
+		playerAddArm(p2Alias, p2ArmsTable, p2ArmJcb, p2, p2TcTxt);
 	}
 	
 	public static void p1addAnArmToTable(ActionEvent event, 
-			JTextField p1Alias, JTable p1ArmsTable, JComboBox<Arm> p1ArmJcb, User p1) {
+			JTextField p1Alias, JTable p1ArmsTable, JComboBox<Arm> p1ArmJcb, User p1, JTextField p1TcTxt) {
 		
-		playerAddArm(p1Alias, p1ArmsTable, p1ArmJcb, p1);
+		playerAddArm(p1Alias, p1ArmsTable, p1ArmJcb, p1, p1TcTxt);
 	}
 
 	public static void fillUserJcb(JComboBox<Arm> p1ArmJcb, JComboBox<Arm> p2ArmJcb) {
