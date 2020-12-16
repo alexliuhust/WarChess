@@ -7,39 +7,33 @@ import com.chess.model.*;
 
 public class Test {
 	
-	public static void knight_spear(int round) {
-		Arm knight = new Knight("kn");
-		Arm spearman = new Spearman("sp");
-		for (int i = 0; i < round; i++) {
-			Calculate.mainAttack(spearman, knight);
-			Calculate.mainAttack(knight, spearman);
-			
-		}
-	}
 	
-	public static void knight_swords(int round) {
-		Arm knight = new Knight("kn");
+	
+	public static void swords_assassin(int round) {
 		Arm swords = new Swordsman("sw");
+		Arm assa = new Assassin("ass");
 		for (int i = 0; i < round; i++) {
+			Calculate.mainAttack(assa, swords);
+			Calculate.mainAttack(swords, assa);
+		}
+	}
+	
+	public static void spear_assassin(int round) {
+		Arm spear = new Spearman("sp");
+		Arm assa = new Assassin("ass");
+		for (int i = 0; i < round; i++) {
+			Calculate.mainAttack(assa, spear);
+			Calculate.mainAttack(spear, assa);
+		}
+	}
+	
+	public static void shock_assassin(int round) {
+		Arm shock = new ShockCavalry("sh");
+		Arm assa = new Assassin("ass");
+		for (int i = 0; i < round; i++) {
+			Calculate.mainAttack(assa, shock);
+			Calculate.mainAttack(shock, assa);
 			
-			Calculate.mainAttack(knight, swords);
-			Calculate.mainAttack(swords, knight);
-		}
-	}
-	
-	public static void long_knight(int round) {
-		Arm knight = new Knight("kn");
-		Arm lo = new Longbowman("lo");
-		for (int i = 0; i < round; i++) {
-			Calculate.mainAttack(lo, knight);
-		}
-	}
-	
-	public static void archer_knight(int round) {
-		Arm knight = new Knight("kn");
-		Arm archer = new Archer("ar");
-		for (int i = 0; i < round; i++) {
-			Calculate.mainAttack(archer, knight);
 		}
 	}
 	
@@ -48,7 +42,7 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-		archer_knight(10);
+		swords_assassin(10);
 	}
 	
 
