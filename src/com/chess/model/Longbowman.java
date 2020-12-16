@@ -16,7 +16,7 @@ public class Longbowman extends Arm {
 		ra_arm = 0;
 		ch_arm = 0;
 		
-		dama = 40;
+		dama = 38;
 		ap = 50;
 		type = "ra";
 		range = 9;

@@ -14,7 +14,7 @@ public class Spearman extends Arm {
 		
 		me_arm = 40;     
 		ra_arm = 50;
-		ch_arm = 80;
+		ch_arm = 100;
 		
 		dama = 15;         
 		ap = 50;           

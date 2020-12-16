@@ -1,79 +1,54 @@
 package com.chess.test;
 
 import com.chess.calculate.Calculate;
-import com.chess.model.Archer;
-import com.chess.model.Arm;
-import com.chess.model.Longbowman;
-import com.chess.model.Spearman;
-import com.chess.model.Swordsman;
-import com.chess.model.User;
+import com.chess.model.*;
 
 
 public class Test {
 	
-	public static void swordsman_spearman() {
-		Arm swordsman = new Swordsman("sw1");
-		Arm spearman = new Spearman("sp1");
-		
-		Calculate.mainAttack(swordsman, spearman);
-		Calculate.mainAttack(spearman, swordsman);
-		Calculate.mainAttack(swordsman, spearman);
-		Calculate.mainAttack(spearman, swordsman);
-		Calculate.mainAttack(swordsman, spearman);
-	}
-	
-	public static void archer_spearman() {
-		Arm archer = new Archer("ar");
+	public static void knight_spear(int round) {
+		Arm knight = new Knight("kn");
 		Arm spearman = new Spearman("sp");
-		
-		Calculate.mainAttack(archer, spearman);
-		Calculate.mainAttack(archer, spearman);
+		for (int i = 0; i < round; i++) {
+			Calculate.mainAttack(spearman, knight);
+			Calculate.mainAttack(knight, spearman);
+			
+		}
 	}
 	
-	public static void long_swordsman() {
-		Arm swordsman = new Swordsman("sw1");
-		Arm longbowman = new Longbowman("lo1");
-		
-		Calculate.mainAttack(longbowman, swordsman);
-		Calculate.mainAttack(longbowman, swordsman);
+	public static void knight_swords(int round) {
+		Arm knight = new Knight("kn");
+		Arm swords = new Swordsman("sw");
+		for (int i = 0; i < round; i++) {
+			
+			Calculate.mainAttack(knight, swords);
+			Calculate.mainAttack(swords, knight);
+		}
 	}
 	
-	public static void long_spear_archer_spear() {
+	public static void long_knight(int round) {
+		Arm knight = new Knight("kn");
+		Arm lo = new Longbowman("lo");
+		for (int i = 0; i < round; i++) {
+			Calculate.mainAttack(lo, knight);
+		}
+	}
+	
+	public static void archer_knight(int round) {
+		Arm knight = new Knight("kn");
 		Arm archer = new Archer("ar");
-		Arm longbowman = new Longbowman("lo");
-		Arm spearman1 = new Spearman("sp_v");
-		Arm spearman2 = new Spearman("sp_v");
-		
-		Calculate.mainAttack(archer, spearman1);
-		Calculate.mainAttack(longbowman, spearman2);
-	}
-	
-	public static void long_archer_archer_archer() {
-		Arm archer = new Archer("ar");
-		Arm longbowman = new Longbowman("lo");
-		Arm archer_1 = new Archer("ar_v");
-		Arm archer_2 = new Archer("ar_v");
-		
-		Calculate.mainAttack(archer, archer_1);
-		Calculate.mainAttack(longbowman, archer_2);
-	}
-	
-	
-	public static void printUser() {
-		User alex = new User("Alex");
-		alex.troop.put("sw1", new Swordsman("sw1"));
-		alex.troop.put("sw2", new Swordsman("sw2"));
-		alex.troop.put("sp1", new Spearman("sp1"));
-		alex.getInfo();
+		for (int i = 0; i < round; i++) {
+			Calculate.mainAttack(archer, knight);
+		}
 	}
 	
 	
 	
 	
 	
-
 	public static void main(String[] args) {
-		archer_spearman();
+		archer_knight(10);
 	}
+	
 
 }
