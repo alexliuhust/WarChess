@@ -179,14 +179,11 @@ public class FormUpTroopFrm extends JFrame {
 	}
 	
 	
-	
-	
-	
-	private void p2addAnArmToTable(ActionEvent e) {
-		DefaultTableModel dtm = (DefaultTableModel) p2ArmsTable.getModel();
+	private void playerAddArm(JTextField pAlias, JTable pArmsTable, JComboBox pArmJcb, User p) {
+		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
 		Vector<Object> v = new Vector<>();
-		String alias = p2Alias.getText();
-		Arm target = (Arm) p2ArmJcb.getSelectedItem();
+		String alias = pAlias.getText();
+		Arm target = (Arm) pArmJcb.getSelectedItem();
 		Arm arm = new Arm();
 		arm.name = target.name;
 		arm.alias = alias;
@@ -210,55 +207,26 @@ public class FormUpTroopFrm extends JFrame {
 			JOptionPane.showMessageDialog(null, "Alias cannot be empty!");
 			return;
 		}
-		if (p2.troop.containsKey(alias)) {
+		if (p.troop.containsKey(alias)) {
 			JOptionPane.showMessageDialog(null, "Alias has to be unique!");
 			return;
 		}
-		p2.addArm(alias, arm);
+		p.addArm(alias, arm);
 		
 		v.add(alias);
 		v.add(arm.name);
 		dtm.addRow(v);
 		
-		p2.getInfo();
+		p.getInfo();
+	}
+	
+	
+	private void p2addAnArmToTable(ActionEvent e) {
+		playerAddArm(p2Alias, p2ArmsTable, p2ArmJcb, p2);
 	}
 	
 	private void p1addAnArmToTable(ActionEvent event) {
-		DefaultTableModel dtm = (DefaultTableModel) p1ArmsTable.getModel();
-		Vector<Object> v = new Vector<>();
-		String alias = p1Alias.getText();
-		Arm target = (Arm) p1ArmJcb.getSelectedItem();
-		Arm arm = new Arm();
-		arm.name = target.name;
-		arm.alias = alias;
-		arm.cost = target.cost;
-		arm.scale = target.scale;
-		arm.cur_scale = target.cur_scale;
-		arm.uhp   = target.uhp;   
-		arm.ga    = target.ga;    
-		arm.speed = target.speed; 
-		arm.me_arm= target.me_arm;
-		arm.ra_arm= target.ra_arm;
-		arm.ch_arm= target.ch_arm;
-		arm.dama  = target.dama;  
-		arm.ap    = target.ap;    
-		arm.type  = target.type;  
-		arm.range = target.range; 
-		arm.d_dama= target.d_dama;
-		arm.d_ap  = target.d_ap;  
-		
-		if (p1.troop.containsKey(alias)) {
-			JOptionPane.showMessageDialog(null, "Alias has to be unique!");
-			return;
-		}
-		p1.addArm(alias, arm);
-		
-		v.add(alias);
-		v.add(arm.name);
-		dtm.addRow(v);
-		
-		p1.getInfo();
-		
+		playerAddArm(p1Alias, p1ArmsTable, p1ArmJcb, p1);
 	}
 
 	private void fillUserJcb() {
@@ -269,12 +237,4 @@ public class FormUpTroopFrm extends JFrame {
 		}
 	}
 }
-
-
-
-
-
-
-
-
 
