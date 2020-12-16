@@ -126,8 +126,7 @@ public class UsersFrm extends JFrame {
 		
 		fillUserJcb();
 	}
-	
-	
+	// -------------------------------------------------------------------------------------------------------
 	
 	
 	private void startPlayActionPerformed(ActionEvent event) {

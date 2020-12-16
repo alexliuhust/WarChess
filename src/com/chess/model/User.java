@@ -25,6 +25,12 @@ public class User {
 	public void addArm(String alias, Arm arm) {
 		this.troop.put(alias, arm);
 	}
+	
+	public void removeArm(String alias) {
+		this.troop.remove(alias);
+	}
+	
+	
 	@Override
 	public String toString() {
 		return this.username;

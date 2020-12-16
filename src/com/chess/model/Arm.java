@@ -63,7 +63,7 @@ public class Arm {
 		for (int i = 0; i < num; i++) {
 			bar[i] = '|';
 		}
-		return percent + "% " + "[" + String.valueOf(bar) + "]" + 
+		return percent + "% " + "[" + String.valueOf(bar) + "] " + 
 			"(" + this.cur_scale + ")";
 	}
 	@Override
