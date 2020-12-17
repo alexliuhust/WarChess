@@ -74,19 +74,8 @@ public class PlayGroundService {
 		pCbNameTxt.setText(arm.name);
 		pCbCurTxt.setText(arm.showCurrentScale());
 		pCbSpTxt.setText(String.valueOf(arm.speed));
+		pCbRaTxt.setText(arm.showRangeAndAmmo());
 		pCbGATxt.setText(arm.ga);
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append(String.valueOf(arm.range));
-		sb.append('(');
-		if (arm.ammo < 0){
-			sb.append('*');
-		} else {
-			sb.append(arm.ammo);
-		}
-		sb.append(')');
-		
-		pCbRaTxt.setText(sb.toString());
 	}
 	
 	public static void getP2SelectedArm(MouseEvent e,JTextField p2CbAliasTxt,

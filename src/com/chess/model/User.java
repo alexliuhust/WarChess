@@ -24,18 +24,8 @@ public class User {
 			item[1] = arm.name;
 			item[2] = arm.showCurrentScale();
 			item[3] = String.valueOf(arm.speed);
+			item[4] = arm.showRangeAndAmmo();
 			item[5] = arm.ga;
-			
-			StringBuilder sb = new StringBuilder();
-			sb.append(String.valueOf(arm.range));
-			sb.append('(');
-			if (arm.ammo < 0){
-				sb.append('*');
-			} else {
-				sb.append(arm.ammo);
-			}
-			sb.append(')');
-			item[4] = sb.toString();
 			
 			list.add(item);
 		}

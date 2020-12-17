@@ -74,6 +74,20 @@ public class Arm {
 		return percent + "% " + "[" + String.valueOf(bar) + "] " + 
 			"(" + this.cur_scale + ")";
 	}
+	
+	public String showRangeAndAmmo() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(range);
+		sb.append('(');
+		if (ammo < 0){
+			sb.append('*');
+		} else {
+			sb.append(ammo);
+		}
+		sb.append(')');
+		return sb.toString();
+	}
+	
 	@Override
 	public String toString() {
 		return "[" + name + ", scale=" + scale + "]";
