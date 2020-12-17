@@ -23,6 +23,7 @@ public class Ballista extends Arm {
 		ap = 60;
 		type = "ra";
 		range = 7;
+		ammo = 10;
 		
 		d_dama = 0;
 		d_ap = 0;

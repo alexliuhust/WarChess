@@ -23,6 +23,7 @@ public class Arm {
 	public Integer ap;
 	public String type;
 	public Integer range;
+	public Integer ammo = -1;
 	
 	public Integer d_dama;
 	public Integer d_ap;
@@ -38,19 +39,24 @@ public class Arm {
 		this.name      = target.name;          
 		this.alias     = alias;
 		this.categ     = target.categ;
+		
 		this.cost      = target.cost;          
 		this.scale     = target.scale;        
 		this.cur_scale = target.cur_scale;
 		this.uhp       = target.uhp;          
 		this.ga        = target.ga;           
-		this.speed     = target.speed;        
+		this.speed     = target.speed;  
+		
 		this.me_arm    = target.me_arm;       
 		this.ra_arm    = target.ra_arm;       
 		this.ch_arm    = target.ch_arm;       
+		
 		this.dama      = target.dama;         
 		this.ap        = target.ap;           
 		this.type      = target.type;         
-		this.range     = target.range;        
+		this.range     = target.range;
+		this.ammo      = target.ammo;
+		
 		this.d_dama    = target.d_dama;       
 		this.d_ap      = target.d_ap;         
 	}
@@ -70,7 +76,7 @@ public class Arm {
 	}
 	@Override
 	public String toString() {
-		return "[" + alias + "-" + name + ", scale=" + scale + "]";
+		return "[" + name + ", scale=" + scale + "]";
 	}
 	
 }

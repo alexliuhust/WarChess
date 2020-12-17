@@ -23,6 +23,7 @@ public class RangeRider extends Arm {
 		ap = 0;
 		type = "ra";
 		range = 6;
+		ammo = 15;
 		
 		d_dama = 10;
 		d_ap = 0;

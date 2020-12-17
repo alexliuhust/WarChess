@@ -248,9 +248,9 @@ public class PlayGround extends JFrame {
 		});
 		p2ArmsTable.getColumnModel().getColumn(0).setPreferredWidth(30);
 		p2ArmsTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-		p2ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(160);
+		p2ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(140);
 		p2ArmsTable.getColumnModel().getColumn(3).setPreferredWidth(20);
-		p2ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(20);
+		p2ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(40);
 		p2ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(20);
 		scrollPane_1.setViewportView(p2ArmsTable);
 		
@@ -274,9 +274,9 @@ public class PlayGround extends JFrame {
 		});
 		p1ArmsTable.getColumnModel().getColumn(0).setPreferredWidth(30);
 		p1ArmsTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-		p1ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(160);
+		p1ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(140);
 		p1ArmsTable.getColumnModel().getColumn(3).setPreferredWidth(20);
-		p1ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(20);
+		p1ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(40);
 		p1ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(20);
 		scrollPane.setViewportView(p1ArmsTable);
 		

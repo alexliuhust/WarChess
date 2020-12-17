@@ -83,11 +83,12 @@ public class CalculateHelper {
 	}
 	
 	/**
-	 * Update attacker's and defender's current scales
+	 * Update attacker's and defender's current scales and attacker's ammo
 	 * @param attacker
 	 * @param defender
 	 */
 	public static void updateCurrentScale(Arm attacker, Arm defender, int attacker_dead, int defender_dead) {
+		attacker.ammo--;
 		attacker.cur_scale -= attacker_dead;
 		defender.cur_scale -= defender_dead;
 		if (attacker.cur_scale < 0) attacker.cur_scale = 0;

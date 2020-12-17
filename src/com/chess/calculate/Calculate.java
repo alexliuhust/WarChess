@@ -10,7 +10,7 @@ public class Calculate {
 	 * @param defender
 	 */
 	public static void mainAttack(Arm attacker, Arm defender) {
-		if (attacker.cur_scale == 0 || defender.cur_scale == 0) 
+		if (attacker.cur_scale == 0 || defender.cur_scale == 0 || attacker.ammo == 0) 
 			return;
 		
 		PrintLog.beforeLog(attacker, defender);
@@ -34,7 +34,7 @@ public class Calculate {
 			attacker_dead = CalculateHelper.defenceAttack(attacker, defender);
 		}
 		
-		// Update attacker's and defender's current scales
+		// Update attacker's and defender's current scales and attacker's ammo
 		CalculateHelper.updateCurrentScale(attacker, defender, attacker_dead, defender_dead);
 		
 		PrintLog.afterLog(attacker, defender);
