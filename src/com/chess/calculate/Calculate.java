@@ -5,18 +5,19 @@ import com.chess.model.Arm;
 public class Calculate {
 
 	/**
-	 * Main Attack. Calculate how many units the defender will have left
+	 * Main Attack. 
 	 * @param attacker
 	 * @param defender
 	 */
 	public static void mainAttack(Arm attacker, Arm defender) {
 		if (attacker.cur_scale == 0 || defender.cur_scale == 0 || attacker.ammo == 0) 
 			return;
-		
+		int attacker_dead = 0, defender_dead = 0;
 		PrintLog.beforeLog(attacker, defender);
 		
-		int attacker_dead = 0, defender_dead = 0;
-		int total_damage = CalculateHelper.calculateTotalDamage(attacker, defender);
+		// Calculate the total damage after damage attenuation and instability
+		int total_damage = attacker.dama * attacker.cur_scale;
+		total_damage = CalculateHelper.damageInstability(attacker, defender, total_damage);
 		
 		// Calculate how much the defender's armor can do
 		int left_armor = CalculateHelper.calculateLeftArmor(attacker, defender);
@@ -29,14 +30,13 @@ public class Calculate {
 		defender_dead = dead;
 		PrintLog.attackLog(defender, total_damage, left_armor, real_damage, defender_dead);
 		
-		// Determine whether there is a counter attack
+		// Determine whether there is a defense attack
 		if (attacker.type.equals("me")) {
 			attacker_dead = CalculateHelper.defenceAttack(attacker, defender);
 		}
 		
 		// Update attacker's and defender's current scales and attacker's ammo
-		CalculateHelper.updateCurrentScale(attacker, defender, attacker_dead, defender_dead);
-		
+		CalculateHelper.updateCurrentState(attacker, defender, attacker_dead, defender_dead);
 		PrintLog.afterLog(attacker, defender);
 	}
 }

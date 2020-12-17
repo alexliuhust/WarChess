@@ -5,7 +5,7 @@ import com.chess.model.Arm;
 public class CalculateHelper {
 
 	/**
-	 * Defense Attack. Calculate how many units the attacker will have left
+	 * Defense Attack. Calculate how many units will die in the attacker
 	 * @param attacker
 	 * @param defender
 	 */
@@ -49,32 +49,21 @@ public class CalculateHelper {
 	}
 	
 	/**
-	 * Calculate the Total Damage
-	 * The damage of each class has a specific degree of instability
+	 * Calculate the Total Damage after damage instability
 	 * @param attacker
 	 * @param defender
 	 * @return
 	 */
-	public static int calculateTotalDamage(Arm attacker, Arm defender) {
-		int total_damage = attacker.dama * attacker.cur_scale;
+	public static int damageInstability(Arm attacker, Arm defender, int total_damage) {
+		total_damage = damageAttenuation(attacker, defender, total_damage);
 		int step = 0;
 		int rand = 0;
 		
 		if (attacker.categ.equals("cav")) {
-			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
-				total_damage += total_damage / 6;
-			}
 			step = total_damage / 13;
 			rand = (int)(Math.random() * 1.7 * step) - step;
 		}
 		else if (attacker.categ.equals("art")) {
-			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
-				total_damage /= 10;
-			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
-				total_damage -= total_damage / 4;
-			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.6) {
-				total_damage -= total_damage / 2;
-			}
 			step = total_damage / 5;
 			rand = (int)(Math.random() * 1.2 * step) - step;
 		}
@@ -83,11 +72,41 @@ public class CalculateHelper {
 	}
 	
 	/**
+	 * Calculate the Total Damage after damage attenuation
+	 * @param attacker
+	 * @param defender
+	 * @param total_damage
+	 * @return
+	 */
+	private static int damageAttenuation(Arm attacker, Arm defender, int total_damage) {
+		// damage attenuation for the Artillery
+		if (attacker.categ.equals("art")) {
+			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1 || defender.cur_scale <= 10) {
+				total_damage /= 10;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3 || defender.cur_scale <= 15) {
+				total_damage /= 4;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.5 || defender.cur_scale <= 20) {
+				total_damage /= 2;
+			}
+		}
+		// damage attenuation for other range arms
+		else if (attacker.type.equals("ra")) {
+			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1 || defender.cur_scale <= 10) {
+				total_damage /= 4;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3 || defender.cur_scale <= 15) {
+				total_damage /= 2;
+			}
+		}
+		
+		return total_damage;
+	}
+	
+	/**
 	 * Update attacker's and defender's current scales and attacker's ammo
 	 * @param attacker
 	 * @param defender
 	 */
-	public static void updateCurrentScale(Arm attacker, Arm defender, int attacker_dead, int defender_dead) {
+	public static void updateCurrentState(Arm attacker, Arm defender, int attacker_dead, int defender_dead) {
 		attacker.ammo--;
 		attacker.cur_scale -= attacker_dead;
 		defender.cur_scale -= defender_dead;
