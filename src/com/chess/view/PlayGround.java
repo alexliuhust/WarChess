@@ -6,9 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.concurrent.TimeUnit;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
@@ -45,6 +43,7 @@ public class PlayGround extends JFrame {
 	private JTextField p2CbSpTxt;
 	private JTextField p2CbRaTxt;
 	private JTextField p2CbGATxt;
+	private JTextField tossTxt;
 
 	/**
 	 * Create the frame.
@@ -54,7 +53,7 @@ public class PlayGround extends JFrame {
 		this.p1 = p1;
 		this.p2 = p2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 685, 692);
+		setBounds(100, 100, 685, 760);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -291,6 +290,36 @@ public class PlayGround extends JFrame {
 		contentPane.add(btnNewButton_1);
 		contentPane.add(btnNewButton);
 		contentPane.add(panel_1);
+		
+		JButton btnNewButton_2 = new JButton("Toss");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tossAndShow(e);
+			}
+		});
+		btnNewButton_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
+		btnNewButton_2.setBounds(283, 650, 93, 23);
+		contentPane.add(btnNewButton_2);
+		
+		tossTxt = new JTextField();
+		tossTxt.setEditable(false);
+		tossTxt.setBounds(304, 683, 52, 21);
+		contentPane.add(tossTxt);
+		tossTxt.setColumns(10);
+		tossTxt.setText("0");
 	}
-	
+
+	private void tossAndShow(ActionEvent e) {
+		try {
+			TimeUnit.MILLISECONDS.sleep(300);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		double rand = Math.random();
+		if (rand < 0.1) tossTxt.setText("1");
+		else if (rand < 0.6) tossTxt.setText("2");
+		else if (rand < 0.85) tossTxt.setText("3");
+		else tossTxt.setText("4");
+		
+	}
 }

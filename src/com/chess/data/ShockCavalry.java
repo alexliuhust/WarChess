@@ -12,7 +12,7 @@ public class ShockCavalry extends Arm {
 		cur_scale = 30;   
 		uhp = 130;
 		ga = "g";
-		speed = 6;
+		speed = 7;
 		
 		me_arm = 40;
 		ra_arm = 20;

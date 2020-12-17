@@ -18,7 +18,7 @@ public class Assassin extends Arm {
 		ra_arm = 20;
 		ch_arm = 0;
 		
-		dama = 38;         
+		dama = 40;         
 		ap = 50;           
 		type = "me";   
 		range = 0;

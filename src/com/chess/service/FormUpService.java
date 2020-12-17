@@ -23,7 +23,7 @@ public class FormUpService {
 			JOptionPane.showMessageDialog(null, "Each player has to choose at least one arm!");
 			return;
 		}
-		//formUpTroopFrm.dispose();
+		formUpTroopFrm.dispose();
 		new PlayGround(p1, p2).setVisible(true);
 	}
 	
