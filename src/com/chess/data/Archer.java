@@ -4,10 +4,11 @@ import com.chess.model.Arm;
 
 public class Archer extends Arm {
 	
-	public Archer(String alias_) {
+	public Archer() {
 		name = "Archer";
-		alias = alias_;
-		cost = 180;
+		categ = "inf";
+		
+		cost = 210;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;

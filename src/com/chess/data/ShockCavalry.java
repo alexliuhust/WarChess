@@ -4,10 +4,11 @@ import com.chess.model.Arm;
 
 public class ShockCavalry extends Arm {
 
-	public ShockCavalry(String alias_) {
+	public ShockCavalry() {
 		name = "ShockCavalry";
-		alias = alias_;
-		cost = 310;
+		categ = "cav";
+		
+		cost = 380;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 130;

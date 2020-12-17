@@ -4,9 +4,10 @@ import com.chess.model.Arm;
 
 public class Spearman extends Arm {
 
-	public Spearman(String alias_) {
+	public Spearman() {
 		name = "Spearman";
-		alias = alias_;
+		categ = "inf";
+		
 		cost = 190;
 		scale = 100;
 		cur_scale = 100;   

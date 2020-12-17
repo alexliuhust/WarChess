@@ -4,9 +4,10 @@ import com.chess.model.Arm;
 
 public class Assassin extends Arm {
 
-	public Assassin(String alias_) {
+	public Assassin() {
 		name = "Assassin";
-		alias = alias_;
+		categ = "inf";
+		
 		cost = 200;
 		scale = 80;
 		cur_scale = 80;   

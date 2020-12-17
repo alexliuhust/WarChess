@@ -40,7 +40,7 @@ public class FormUpService {
 		for(int i = 0; i < rows.length; i++) {
 			dtm.removeRow(rows[i]-i);
 		}
-		p.getInfo();
+		//p.getInfo();
 		pTcTxt.setText(String.valueOf(cur_cost));
 	}
 	
@@ -62,7 +62,7 @@ public class FormUpService {
 		v.add(alias);
 		v.add(arm.name);
 		dtm.addRow(v);
-		p.getInfo();
+		//p.getInfo();
 		
 		Integer cur_cost = Integer.parseInt(pTcTxt.getText());
 		cur_cost += arm.cost;

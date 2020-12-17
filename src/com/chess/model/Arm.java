@@ -6,6 +6,8 @@ public class Arm {
 	
 	public String name;
 	public String alias;
+	public String categ;
+	
 	public Integer cost;
 	public Integer scale;
 	public Integer cur_scale;
@@ -34,7 +36,8 @@ public class Arm {
 	 */
 	public Arm(Arm target, String alias) {
 		this.name      = target.name;          
-		this.alias     = alias;               
+		this.alias     = alias;
+		this.categ     = target.categ;
 		this.cost      = target.cost;          
 		this.scale     = target.scale;        
 		this.cur_scale = target.cur_scale;

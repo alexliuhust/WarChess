@@ -4,10 +4,11 @@ import com.chess.model.Arm;
 
 public class Knight extends Arm {
 
-	public Knight(String alias_) {
+	public Knight() {
 		name = "Knight";
-		alias = alias_;
-		cost = 280;
+		categ = "cav";
+		
+		cost = 350;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 150;

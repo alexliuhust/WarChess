@@ -4,10 +4,11 @@ import com.chess.model.Arm;
 
 public class Longbowman extends Arm {
 
-	public Longbowman(String alias_) {
+	public Longbowman() {
 		name = "Longbowman";
-		alias = alias_;
-		cost = 200;
+		categ = "inf";
+		
+		cost = 230;
 		scale = 40;
 		cur_scale = 40;   
 		uhp = 50;

@@ -2,21 +2,21 @@ package com.chess.data;
 
 import com.chess.model.Arm;
 
-public class Swordsman extends Arm {
+public class LightInfantry extends Arm {
 
-	public Swordsman() {
-		name = "Swordsman";
+	public LightInfantry() {
+		name = "LightInfantry";
 		categ = "inf";
 		
-		cost = 170;
+		cost = 160;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    
 		ga = "g";
 		speed = 4;
 		
-		me_arm = 60;     
-		ra_arm = 50;
+		me_arm = 20;     
+		ra_arm = 20;
 		ch_arm = 0;
 		
 		dama = 20;         

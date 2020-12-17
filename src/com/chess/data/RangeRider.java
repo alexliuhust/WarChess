@@ -4,10 +4,11 @@ import com.chess.model.Arm;
 
 public class RangeRider extends Arm {
 
-	public RangeRider(String alias_) {
+	public RangeRider() {
 		name = "RangeRider";
-		alias = alias_;
-		cost = 250;
+		categ = "cav";
+		
+		cost = 320;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 100;
