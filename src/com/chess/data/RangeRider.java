@@ -5,7 +5,7 @@ import com.chess.model.Arm;
 public class RangeRider extends Arm {
 
 	public RangeRider() {
-		name = "RangeRider";
+		name = "Range Rider";
 		categ = "cav";
 		
 		cost = 320;
@@ -13,7 +13,7 @@ public class RangeRider extends Arm {
 		cur_scale = 30;   
 		uhp = 100;
 		ga = "g";
-		speed = 8;
+		speed = 9;
 		
 		me_arm = 0;
 		ra_arm = 80;

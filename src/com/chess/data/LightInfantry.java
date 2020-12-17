@@ -5,7 +5,7 @@ import com.chess.model.Arm;
 public class LightInfantry extends Arm {
 
 	public LightInfantry() {
-		name = "LightInfantry";
+		name = "Light Infantry";
 		categ = "inf";
 		
 		cost = 160;

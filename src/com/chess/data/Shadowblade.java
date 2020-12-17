@@ -2,29 +2,29 @@ package com.chess.data;
 
 import com.chess.model.Arm;
 
-public class Assassin extends Arm {
-
-	public Assassin() {
-		name = "Assassin";
+public class Shadowblade extends Arm {
+	
+	public Shadowblade() {
+		name = "*Shadowblade";
 		categ = "inf";
 		
-		cost = 210;
+		cost = 230;
 		scale = 80;
 		cur_scale = 80;   
-		uhp = 40;    
+		uhp = 45;    
 		ga = "g";
 		speed = 6;
 		
-		me_arm = 40;     
-		ra_arm = 20;
-		ch_arm = 0;
+		me_arm = 45;     
+		ra_arm = 30;
+		ch_arm = 30;
 		
-		dama = 40;         
+		dama = 45;         
 		ap = 50;           
 		type = "me";   
 		range = 0;
 		
-		d_dama = 38;       
+		d_dama = 40;       
 		d_ap = 50;         
 	}
 }

@@ -5,7 +5,7 @@ import com.chess.model.Arm;
 public class ShockCavalry extends Arm {
 
 	public ShockCavalry() {
-		name = "ShockCavalry";
+		name = "Shock Cavalry";
 		categ = "cav";
 		
 		cost = 380;

@@ -74,9 +74,11 @@ public class FormUpTroopFrm extends JFrame {
 		lblP.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		
 		p1ArmJcb = new JComboBox<Arm>();
+		p1ArmJcb.setMaximumRowCount(20);
 		p1ArmJcb.setBounds(35, 75, 245, 23);
 		
 		p2ArmJcb = new JComboBox<Arm>();
+		p2ArmJcb.setMaximumRowCount(20);
 		p2ArmJcb.setBounds(364, 75, 245, 23);
 		
 		p1Alias = new JTextField();

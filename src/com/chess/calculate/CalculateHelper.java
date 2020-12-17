@@ -59,13 +59,15 @@ public class CalculateHelper {
 		int step = 0;
 		int rand = 0;
 		
-		if (attacker.categ.equals("cav")) {
-			step = total_damage / 13;
-			rand = (int)(Math.random() * 1.7 * step) - step;
-		}
-		else if (attacker.categ.equals("art")) {
+		if (attacker.categ.equals("art")) {
 			step = total_damage / 5;
 			rand = (int)(Math.random() * 1.2 * step) - step;
+		}else if (attacker.type.equals("ra")) {
+			step = total_damage / 8;
+			rand = (int)(Math.random() * 2 * step) - step;
+		}else if (attacker.categ.equals("cav")) {
+			step = total_damage / 6;
+			rand = (int)(Math.random() * 1.7 * step) - step;
 		}
 		
 		return total_damage + rand;
@@ -81,20 +83,26 @@ public class CalculateHelper {
 	private static int damageAttenuation(Arm attacker, Arm defender, int total_damage) {
 		// damage attenuation for the Artillery
 		if (attacker.categ.equals("art")) {
-			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1 || defender.cur_scale <= 10) {
+			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
 				total_damage /= 10;
-			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3 || defender.cur_scale <= 15) {
-				total_damage /= 4;
-			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.5 || defender.cur_scale <= 20) {
-				total_damage /= 2;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
+				total_damage /= 6;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.5) {
+				total_damage /= 3;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.75) {
+				total_damage -= total_damage / 5;
 			}
 		}
 		// damage attenuation for other range arms
 		else if (attacker.type.equals("ra")) {
-			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1 || defender.cur_scale <= 10) {
+			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
 				total_damage /= 4;
-			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3 || defender.cur_scale <= 15) {
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
+				total_damage /= 3;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.5) {
 				total_damage /= 2;
+			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.75) {
+				total_damage -= total_damage / 4;
 			}
 		}
 		
