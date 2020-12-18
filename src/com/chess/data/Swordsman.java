@@ -19,12 +19,12 @@ public class Swordsman extends Arm {
 		ra_arm = 50;
 		ch_arm = 0;
 		
-		dama = 20;         
+		dama = 18;         
 		ap = 10;           
 		type = "me";   
 		range = 0;
 		
-		d_dama = 18;       
+		d_dama = 16;       
 		d_ap = 10;         
 	}
 

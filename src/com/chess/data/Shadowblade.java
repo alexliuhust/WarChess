@@ -8,16 +8,16 @@ public class Shadowblade extends Arm {
 		name = "*Shadowblade";
 		categ = "inf";
 		
-		cost = 230;
+		cost = 240;
 		scale = 80;
 		cur_scale = 80;   
 		uhp = 45;    
 		ga = "g";
 		speed = 6;
 		
-		me_arm = 45;     
-		ra_arm = 30;
-		ch_arm = 30;
+		me_arm = 0;     
+		ra_arm = 80;
+		ch_arm = 80;
 		
 		dama = 45;         
 		ap = 50;           

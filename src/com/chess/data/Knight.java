@@ -13,7 +13,7 @@ public class Knight extends Arm {
 		cur_scale = 30;   
 		uhp = 150;
 		ga = "g";
-		speed = 7;
+		speed = 6;
 		
 		me_arm = 80;
 		ra_arm = 80;

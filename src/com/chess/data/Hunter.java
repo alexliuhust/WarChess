@@ -2,10 +2,10 @@ package com.chess.data;
 
 import com.chess.model.Arm;
 
-public class Watcher extends Arm {
-
-	public Watcher() {
-		name = "*Watcher";
+public class Hunter extends Arm {
+	
+	public Hunter() {
+		name = "Hunter";
 		categ = "inf";
 		
 		cost = 260;
@@ -15,17 +15,18 @@ public class Watcher extends Arm {
 		ga = "g";
 		speed = 5;
 		
-		me_arm = 30;
+		me_arm = 0;
 		ra_arm = 30;
-		ch_arm = 30;
+		ch_arm = 0;
 		
-		dama = 37;
+		dama = 42;
 		ap = 35;
 		type = "ra";
-		range = 6;
-		ammo = 25;
+		range = 7;
+		ammo = 20;
 		
-		d_dama = 20;
-		d_ap = 20;
+		d_dama = 10;
+		d_ap = 10;
 	}
+
 }
