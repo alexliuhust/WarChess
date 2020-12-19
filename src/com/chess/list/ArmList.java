@@ -5,28 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.chess.data.Archer;
-import com.chess.data.Ballista;
-import com.chess.data.Catapult;
-import com.chess.data.Dracaena;
-import com.chess.data.HawkCavalry;
-import com.chess.data.Herald;
-import com.chess.data.Hunter;
-import com.chess.data.Knight;
-import com.chess.data.Longbowman;
-import com.chess.data.PiercingHunter;
-import com.chess.data.Shadowblade;
-import com.chess.data.Spearman;
-import com.chess.data.StagRider;
-import com.chess.data.Swordsman;
-import com.chess.data.Watcher;
-import com.chess.data.WoodInfantry;
+import com.chess.data.coral.*;
+import com.chess.data.green.*;
+import com.chess.data.helga.*;
 import com.chess.model.Arm;
 
 public class ArmList {
 	
 	private Map<String, List<Arm>> map;
-	
 	
 	public ArmList() {
 		this.map = new HashMap<>();
@@ -52,6 +38,18 @@ public class ArmList {
 		list2.add(new Dracaena());       
 		list2.add(new HawkCavalry());      
 		map.put("Greenfield", list2);
+		
+		List<Arm> list3 = new ArrayList<>();
+		list3.add(new Halberdman());
+		list3.add(new HalberdShield());
+		list3.add(new GreatAxe());
+		list3.add(new MarinesLight());
+		list3.add(new MarinesShield());
+		list3.add(new Fierycoral());
+		list3.add(new AirrayRider());
+		list3.add(new Aquadragnio());
+		map.put("Coral City", list3);
+		
 	}
 	
 	public List<Arm> getList(String race) {

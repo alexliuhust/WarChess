@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
+import com.chess.list.RaceList;
 import com.chess.list.UserList;
 import com.chess.model.User;
 import com.chess.view.FormUpTroopFrm;
@@ -41,9 +42,10 @@ public class UserService {
 	}
 
 	public static void fillRaceJcb(JComboBox<String> p1RaceJcb, JComboBox<String> p2RaceJcb) {
-		p1RaceJcb.addItem("Helga Empire");
-		p1RaceJcb.addItem("Greenfield");
-		p2RaceJcb.addItem("Helga Empire");
-		p2RaceJcb.addItem("Greenfield");
+		RaceList raceList = new RaceList();
+		for (String race: raceList.getRaces()) {
+			p1RaceJcb.addItem(race);
+			p2RaceJcb.addItem(race);
+		}
 	}
 }
