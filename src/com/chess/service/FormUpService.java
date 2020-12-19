@@ -9,7 +9,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import com.chess.data.ArmList;
+import com.chess.list.ArmList;
 import com.chess.model.Arm;
 import com.chess.model.User;
 import com.chess.util.StringUtil;

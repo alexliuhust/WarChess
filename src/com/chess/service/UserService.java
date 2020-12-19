@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-import com.chess.data.UserList;
+import com.chess.list.UserList;
 import com.chess.model.User;
 import com.chess.view.FormUpTroopFrm;
 import com.chess.view.UsersFrm;

@@ -83,6 +83,11 @@ public class CalculateHelper {
 	private static int damageAttenuation(Arm attacker, Arm defender, int total_damage) {
 		// damage attenuation for the Artillery
 		if (attacker.categ.equals("art")) {
+			// If the defender is an air arm, 
+			// the artillery damage will be highly attenuated
+			if (defender.ga.equals("a")) 
+				total_damage /= 3;
+			
 			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
 				total_damage /= 10;
 			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
@@ -95,6 +100,11 @@ public class CalculateHelper {
 		}
 		// damage attenuation for other range arms
 		else if (attacker.type.equals("ra")) {
+			// If the defender is an air arm, 
+			// the range damage will be attenuated
+			if (defender.ga.equals("a")) 
+				total_damage -= total_damage / 4;
+			
 			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
 				total_damage /= 4;
 			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
