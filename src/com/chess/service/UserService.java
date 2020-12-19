@@ -14,15 +14,21 @@ public class UserService {
 	
 	
 	public static void startPlayActionPerformed(ActionEvent event, 
-			JComboBox<User> player1Jcb, JComboBox<User> player2Jcb, UsersFrm usersFrm) {
+			JComboBox<User> player1Jcb, JComboBox<User> player2Jcb, 
+			JComboBox<String> p1RaceJcb, JComboBox<String> p2RaceJcb, 
+			UsersFrm usersFrm) {
 		User p1 = (User) player1Jcb.getSelectedItem();
 		User p2 = (User) player2Jcb.getSelectedItem();
 		if (p1.username.equals(p2.username)) {
 			JOptionPane.showMessageDialog(null, "Two Users cannot be identical!");
 			return;
 		}
+		
+		String race1 = (String) p1RaceJcb.getSelectedItem();
+		String race2 = (String) p2RaceJcb.getSelectedItem();
+		
 		usersFrm.dispose();
-		new FormUpTroopFrm(p1, p2).setVisible(true);
+		new FormUpTroopFrm(p1, p2, race1, race2).setVisible(true);
 		
 	}
 
@@ -32,5 +38,12 @@ public class UserService {
 			player1Jcb.addItem(user);
 			player2Jcb.addItem(user);
 		}
+	}
+
+	public static void fillRaceJcb(JComboBox<String> p1RaceJcb, JComboBox<String> p2RaceJcb) {
+		p1RaceJcb.addItem("Helga Empire");
+		p1RaceJcb.addItem("Greenfield");
+		p2RaceJcb.addItem("Helga Empire");
+		p2RaceJcb.addItem("Greenfield");
 	}
 }

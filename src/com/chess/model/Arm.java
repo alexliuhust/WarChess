@@ -90,7 +90,7 @@ public class Arm {
 	
 	@Override
 	public String toString() {
-		return "[" + name + ", scale=" + scale + "]";
+		return name + " [$" + cost + "]";
 	}
 	
 }

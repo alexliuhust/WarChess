@@ -23,7 +23,7 @@ public class Catapult extends Arm {
 		ap = 0;
 		type = "ra";
 		range = 10;
-		ammo = 8;
+		ammo = 20;
 		
 		d_dama = 0;
 		d_ap = 0;

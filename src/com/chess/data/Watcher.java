@@ -5,7 +5,7 @@ import com.chess.model.Arm;
 public class Watcher extends Arm {
 
 	public Watcher() {
-		name = "*Watcher";
+		name = "Watcher";
 		categ = "inf";
 		
 		cost = 260;
@@ -23,7 +23,7 @@ public class Watcher extends Arm {
 		ap = 35;
 		type = "ra";
 		range = 6;
-		ammo = 25;
+		ammo = 35;
 		
 		d_dama = 20;
 		d_ap = 20;

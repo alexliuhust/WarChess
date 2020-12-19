@@ -23,7 +23,7 @@ public class StagRider extends Arm {
 		ap = 35;
 		type = "ra";
 		range = 6;
-		ammo = 20;
+		ammo = 25;
 		
 		d_dama = 60;
 		d_ap = 50;

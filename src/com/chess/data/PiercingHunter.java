@@ -23,7 +23,7 @@ public class PiercingHunter extends Arm {
 		ap = 60;
 		type = "ra";
 		range = 7;
-		ammo = 20;
+		ammo = 30;
 		
 		d_dama = 10;
 		d_ap = 10;

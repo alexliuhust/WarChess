@@ -2,13 +2,13 @@ package com.chess.data;
 
 import com.chess.model.Arm;
 
-public class Treant extends Arm {
+public class Dracaena extends Arm {
 
-	public Treant() {
-		name = "Treant";
+	public Dracaena() {
+		name = "Dracaena";
 		categ = "inf";
 		
-		cost = 530;
+		cost = 510;
 		scale = 20;
 		cur_scale = 20;   
 		uhp = 350;    
@@ -17,7 +17,7 @@ public class Treant extends Arm {
 		
 		me_arm = 80;     
 		ra_arm = 80;
-		ch_arm = 0;
+		ch_arm = 80;
 		
 		dama = 120;         
 		ap = 20;           

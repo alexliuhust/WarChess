@@ -22,6 +22,8 @@ public class UsersFrm extends JFrame {
 	private JPanel contentPane;
 	private JComboBox<User> player1Jcb;
 	private JComboBox<User> player2Jcb;
+	private JComboBox<String> p1RaceJcb;
+	private JComboBox<String> p2RaceJcb;
 
 	/**
 	 * Create the frame.
@@ -29,25 +31,27 @@ public class UsersFrm extends JFrame {
 	public UsersFrm() {
 		setTitle("All Users");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 478, 320);
+		setBounds(100, 100, 478, 447);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("Add a User");
-		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
-		
 		JLabel lblNewLabel = new JLabel("Player 1");
+		lblNewLabel.setBounds(66, 79, 52, 21);
 		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 		
 		player1Jcb = new JComboBox<>();
+		player1Jcb.setBounds(128, 80, 254, 24);
 		
 		JLabel lblPlayer = new JLabel("Player 2");
+		lblPlayer.setBounds(66, 212, 58, 21);
 		lblPlayer.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 		
 		player2Jcb = new JComboBox<>();
+		player2Jcb.setBounds(128, 213, 254, 24);
 		
 		JButton btnNewButton_1 = new JButton("Play");
+		btnNewButton_1.setBounds(136, 343, 181, 33);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				startPlayActionPerformed(e);
@@ -56,56 +60,40 @@ public class UsersFrm extends JFrame {
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
 		
 		JLabel lblNewLabel_1 = new JLabel("Acient War Chess");
+		lblNewLabel_1.setBounds(143, 15, 174, 30);
 		lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 22));
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(61)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-							.addGroup(gl_contentPane.createSequentialGroup()
-								.addComponent(lblNewLabel)
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(player1Jcb, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE))
-							.addGroup(gl_contentPane.createSequentialGroup()
-								.addComponent(lblPlayer, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(player2Jcb, GroupLayout.PREFERRED_SIZE, 254, GroupLayout.PREFERRED_SIZE))
-							.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-								.addComponent(btnNewButton)
-								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnNewButton_1)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(77)
-							.addComponent(lblNewLabel_1)))
-					.addContainerGap(79, Short.MAX_VALUE))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel_1)
-					.addGap(34)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel)
-						.addComponent(player1Jcb, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-					.addGap(51)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPlayer, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addComponent(player2Jcb, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-					.addGap(42)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton_1)
-						.addComponent(btnNewButton))
-					.addContainerGap(91, Short.MAX_VALUE))
-		);
-		contentPane.setLayout(gl_contentPane);
+		
+		contentPane.setLayout(null);
+		contentPane.add(lblNewLabel);
+		contentPane.add(player1Jcb);
+		contentPane.add(lblPlayer);
+		contentPane.add(player2Jcb);
+		contentPane.add(btnNewButton_1);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblRace = new JLabel("Race");
+		lblRace.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
+		lblRace.setBounds(66, 125, 52, 21);
+		contentPane.add(lblRace);
+		
+		p1RaceJcb = new JComboBox<>();
+		p1RaceJcb.setBounds(128, 127, 254, 24);
+		contentPane.add(p1RaceJcb);
+		
+		JLabel lblRace_1 = new JLabel("Race");
+		lblRace_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
+		lblRace_1.setBounds(66, 263, 52, 21);
+		contentPane.add(lblRace_1);
+		
+		p2RaceJcb = new JComboBox<>();
+		p2RaceJcb.setBounds(128, 265, 254, 24);
+		contentPane.add(p2RaceJcb);
 		
 		UserService.fillUserJcb(player1Jcb, player2Jcb);
+		UserService.fillRaceJcb(p1RaceJcb, p2RaceJcb);
 	}
 
 	private void startPlayActionPerformed(ActionEvent e) {
-		UserService.startPlayActionPerformed(e, player1Jcb, player2Jcb, this);
+		UserService.startPlayActionPerformed(e, player1Jcb, player2Jcb, p1RaceJcb, p2RaceJcb, this);
 	}
 }

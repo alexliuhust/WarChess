@@ -23,7 +23,7 @@ public class Hunter extends Arm {
 		ap = 35;
 		type = "ra";
 		range = 7;
-		ammo = 20;
+		ammo = 35;
 		
 		d_dama = 10;
 		d_ap = 10;

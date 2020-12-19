@@ -2,13 +2,13 @@ package com.chess.data;
 
 import com.chess.model.Arm;
 
-public class ShockCavalry extends Arm {
+public class Herald extends Arm {
 
-	public ShockCavalry() {
-		name = "Shock Cavalry";
+	public Herald() {
+		name = "Herald";
 		categ = "cav";
 		
-		cost = 380;
+		cost = 350;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 130;
@@ -16,15 +16,15 @@ public class ShockCavalry extends Arm {
 		speed = 7;
 		
 		me_arm = 40;
-		ra_arm = 20;
-		ch_arm = 80;
+		ra_arm = 40;
+		ch_arm = 50;
 		
-		dama = 70;
+		dama = 38;
 		ap = 50;
-		type = "ch";
+		type = "me";
 		range = 0;
 		
-		d_dama = 11;
-		d_ap = 30;
+		d_dama = 32;
+		d_ap = 50;
 	}
 }

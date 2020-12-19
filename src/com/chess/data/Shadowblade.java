@@ -5,7 +5,7 @@ import com.chess.model.Arm;
 public class Shadowblade extends Arm {
 	
 	public Shadowblade() {
-		name = "*Shadowblade";
+		name = "Shadowblade";
 		categ = "inf";
 		
 		cost = 240;

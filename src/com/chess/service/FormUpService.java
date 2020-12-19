@@ -89,10 +89,12 @@ public class FormUpService {
 		playerAddArm(p1Alias, p1ArmsTable, p1ArmJcb, p1, p1TcTxt);
 	}
 
-	public static void fillUserJcb(JComboBox<Arm> p1ArmJcb, JComboBox<Arm> p2ArmJcb) {
+	public static void fillArmJcb(JComboBox<Arm> p1ArmJcb, JComboBox<Arm> p2ArmJcb, String race1, String race2) {
 		ArmList armList = new ArmList();
-		for (Arm arm : armList.getList()) {
+		for (Arm arm : armList.getList(race1)) {
 			p1ArmJcb.addItem(arm);
+		}
+		for (Arm arm : armList.getList(race2)) {
 			p2ArmJcb.addItem(arm);
 		}
 	}

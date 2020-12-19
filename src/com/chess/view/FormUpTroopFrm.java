@@ -42,7 +42,7 @@ public class FormUpTroopFrm extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FormUpTroopFrm(User player1, User player2) {
+	public FormUpTroopFrm(User player1, User player2, String race1, String race2) {
 		p1 = player1;
 		p2 = player2;
 		
@@ -158,7 +158,6 @@ public class FormUpTroopFrm extends JFrame {
 		});
 		scrollPane.setViewportView(p1ArmsTable);
 		
-		FormUpService.fillUserJcb(p1ArmJcb, p2ArmJcb);
 		contentPane.setLayout(null);
 		contentPane.add(lblNewLabel);
 		contentPane.add(lblP);
@@ -183,6 +182,8 @@ public class FormUpTroopFrm extends JFrame {
 		lblNewLabel_1_1.setBounds(364, 191, 60, 15);
 		contentPane.add(lblNewLabel_1_1);
 		contentPane.add(p2TcTxt);
+		
+		FormUpService.fillArmJcb(p1ArmJcb, p2ArmJcb, race1, race2);
 	}
 	
 	private void openPlayGround(ActionEvent event) {

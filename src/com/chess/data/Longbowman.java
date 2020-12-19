@@ -23,7 +23,7 @@ public class Longbowman extends Arm {
 		ap = 50;
 		type = "ra";
 		range = 7;
-		ammo = 10;
+		ammo = 25;
 		
 		d_dama = 8;
 		d_ap = 0;

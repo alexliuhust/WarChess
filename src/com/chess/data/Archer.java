@@ -23,7 +23,7 @@ public class Archer extends Arm {
 		ap = 0;
 		type = "ra";
 		range = 6;
-		ammo = 20;
+		ammo = 30;
 		
 		d_dama = 8;
 		d_ap = 0;
