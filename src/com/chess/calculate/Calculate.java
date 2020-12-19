@@ -28,7 +28,12 @@ public class Calculate {
 		// Calculate how many units will die in the defender's arm
 		int real_damage = total_damage * (100 - left_armor) / 100;
 		int dead = real_damage / defender.uhp;
-		if (dead == 0) dead = 1;
+		if (dead == 0) {
+			if (real_damage < (defender.uhp / 2))
+				dead = 0;
+			else 
+				dead = 1;
+		}
 		
 		defender_dead = dead;
 		PrintLog.attackLog(defender, total_damage, left_armor, real_damage, defender_dead);

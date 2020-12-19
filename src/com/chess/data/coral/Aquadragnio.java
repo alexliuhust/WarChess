@@ -20,7 +20,8 @@ public class Aquadragnio extends Arm {
 		ch_arm = 30;
 		
 		dama = 160;
-		ap = 10;
+		magic = true;
+		ap = 0;
 		type = "ra";
 		range = 10;
 		ammo = 20;

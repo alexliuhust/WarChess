@@ -22,7 +22,12 @@ public class CalculateHelper {
 		// Calculate how many units will die in the attacker's arm
 		int real_damage = total_damage * (100 - left_armor) / 100;
 		int dead = real_damage / attacker.uhp;
-		if (dead == 0) dead = 1;
+		if (dead == 0) {
+			if (real_damage < (attacker.uhp / 2))
+				dead = 0;
+			else 
+				dead = 1;
+		}
 		
 		PrintLog.counterLog(attacker, total_damage, left_armor, real_damage, dead);
 		return dead;
@@ -35,11 +40,17 @@ public class CalculateHelper {
 	 * @return
 	 */
 	public static int calculateLeftArmor(Arm attacker, Arm defender) {
+		if (attacker.magic) return 0;
+		
 		int left_armor = 0;
 		if (attacker.type.equals("me")) 
 			left_armor = defender.me_arm - attacker.ap;
-		else if (attacker.type.equals("ra"))
-			left_armor = defender.ra_arm - attacker.ap;
+		else if (attacker.type.equals("ra")) {
+			if (attacker.categ.equals("art"))
+				left_armor = defender.ra_arm / 2 - attacker.ap;
+			else 
+				left_armor = defender.ra_arm - attacker.ap;
+		}
 		else 
 			left_armor = defender.ch_arm - attacker.ap;
 		
@@ -89,9 +100,9 @@ public class CalculateHelper {
 				total_damage /= 3;
 			
 			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
-				total_damage /= 10;
+				total_damage /= 7;
 			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.3) {
-				total_damage /= 6;
+				total_damage /= 5;
 			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.5) {
 				total_damage /= 3;
 			}else if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.75) {

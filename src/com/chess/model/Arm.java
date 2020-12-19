@@ -20,6 +20,7 @@ public class Arm {
 	public Integer ch_arm;
 	
 	public Integer dama;
+	public Boolean magic;
 	public Integer ap;
 	public String type;
 	public Integer range;
@@ -51,7 +52,8 @@ public class Arm {
 		this.ra_arm    = target.ra_arm;       
 		this.ch_arm    = target.ch_arm;       
 		
-		this.dama      = target.dama;         
+		this.dama      = target.dama;  
+		this.magic     = target.magic;
 		this.ap        = target.ap;           
 		this.type      = target.type;         
 		this.range     = target.range;
