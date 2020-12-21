@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.chess.data.coral.*;
-import com.chess.data.green.*;
-import com.chess.data.helga.*;
+import com.chess.data.CoralArms;
+import com.chess.data.GreenArms;
+import com.chess.data.HelgaArms;
 import com.chess.model.Arm;
 
 public class ArmList {
@@ -18,36 +18,39 @@ public class ArmList {
 		this.map = new HashMap<>();
 		
 		List<Arm> list1 = new ArrayList<>();
-		list1.add(new Swordsman());
-		list1.add(new Spearman());
-		list1.add(new Archer());
-		list1.add(new Longbowman());
-		list1.add(new Herald());
-		list1.add(new Knight());
-		list1.add(new Ballista());
-		list1.add(new Catapult());
+		HelgaArms helgaArms = new HelgaArms();
+		list1.add(helgaArms.getArm("Swordsman"));
+		list1.add(helgaArms.getArm("Spearman"));
+		list1.add(helgaArms.getArm("Archer"));
+		list1.add(helgaArms.getArm("Longbowman"));
+		list1.add(helgaArms.getArm("Herald"));
+		list1.add(helgaArms.getArm("Knight"));
+		list1.add(helgaArms.getArm("Ballista"));
+		list1.add(helgaArms.getArm("Catapult"));
 		map.put("Helga Empire", list1);
 		
 		List<Arm> list2 = new ArrayList<>();
-		list2.add(new WoodInfantry());
-		list2.add(new Shadowblade());
-		list2.add(new Dracaena());       
-		list2.add(new Watcher());
-		list2.add(new Hunter());       
-		list2.add(new PiercingHunter());
-		list2.add(new StagRider());
-		list2.add(new HawkCavalry());      
+		GreenArms greenArms = new GreenArms();
+		list2.add(greenArms.getArm("Wood Infantry"));
+		list2.add(greenArms.getArm("Shadowblade"));
+		list2.add(greenArms.getArm("Dracaena"));       
+		list2.add(greenArms.getArm("Watcher"));
+		list2.add(greenArms.getArm("Hunter"));       
+		list2.add(greenArms.getArm("Piercing Hunter"));
+		list2.add(greenArms.getArm("Stag Rider"));
+		list2.add(greenArms.getArm("Hawk Cavalry"));      
 		map.put("Greenfield", list2);
 		
 		List<Arm> list3 = new ArrayList<>();
-		list3.add(new Halberdman());
-		list3.add(new HalberdShield());
-		list3.add(new GreatAxe());
-		list3.add(new MarinesLight());
-		list3.add(new MarinesShield());
-		list3.add(new Fierycoral());
-		list3.add(new AirrayRider());
-		list3.add(new Aquadragnio());
+		CoralArms coralArms = new CoralArms();
+		list3.add(coralArms.getArm("Halberdman"));
+		list3.add(coralArms.getArm("Halberd-shield"));
+		list3.add(coralArms.getArm("Great Axe"));
+		list3.add(coralArms.getArm("Marines-light"));
+		list3.add(coralArms.getArm("Marines-shield"));
+		list3.add(coralArms.getArm("Fierycoral"));
+		list3.add(coralArms.getArm("Airray Rider"));
+		list3.add(coralArms.getArm("Aquadragnio"));
 		map.put("Coral City", list3);
 		
 	}
