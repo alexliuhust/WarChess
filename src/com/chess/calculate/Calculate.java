@@ -10,7 +10,7 @@ public class Calculate {
 	 * @param defender
 	 */
 	public static void mainAttack(Arm attacker, Arm defender) {
-		if (attacker.cur_scale == 0 || defender.cur_scale == 0 || attacker.ammo == 0) 
+		if (attacker.cur_scale == 0 || defender.cur_scale == 0) 
 			return;
 		if (attacker.ga.equals("g") && attacker.range < 4 && defender.ga.equals("a")) 
 			return;

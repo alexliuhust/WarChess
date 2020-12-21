@@ -137,6 +137,14 @@ public class CalculateHelper {
 	 */
 	public static void updateCurrentState(Arm attacker, Arm defender, int attacker_dead, int defender_dead) {
 		attacker.ammo--;
+		if (attacker.ammo == 0) {
+			attacker.name = attacker.name + "(melee)";
+			attacker.range = 0;
+			attacker.ammo = -1;
+			attacker.dama = attacker.d_dama;
+			attacker.ap = attacker.d_ap;
+			attacker.type = "me";
+		}
 		attacker.cur_scale -= attacker_dead;
 		defender.cur_scale -= defender_dead;
 		if (attacker.cur_scale < 0) attacker.cur_scale = 0;
