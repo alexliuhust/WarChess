@@ -18,13 +18,13 @@ import com.chess.view.PlayGround;
 
 public class FormUpService {
 	
-	public static void openPlayGround(ActionEvent event, User p1, User p2, FormUpTroopFrm formUpTroopFrm) {
-		if (p1.hasNoArm() || p2.hasNoArm()) {
+	public static void openPlayGround(ActionEvent event, FormUpTroopFrm formUpTroopFrm) {
+		if (formUpTroopFrm.p1.hasNoArm() || formUpTroopFrm.p2.hasNoArm()) {
 			JOptionPane.showMessageDialog(null, "Each player has to choose at least one arm!");
 			return;
 		}
 		formUpTroopFrm.dispose();
-		new PlayGround(p1, p2).setVisible(true);
+		new PlayGround(formUpTroopFrm.p1, formUpTroopFrm.p2).setVisible(true);
 	}
 	
 	public static void playerDeleteSelectedArm(JTable pArmsTable,User p,JTextField pTcTxt) {

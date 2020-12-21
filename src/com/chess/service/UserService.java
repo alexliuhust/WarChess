@@ -2,7 +2,6 @@ package com.chess.service;
 
 import java.awt.event.ActionEvent;
 
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 import com.chess.list.RaceList;
@@ -14,38 +13,35 @@ import com.chess.view.UsersFrm;
 public class UserService {
 	
 	
-	public static void startPlayActionPerformed(ActionEvent event, 
-			JComboBox<User> player1Jcb, JComboBox<User> player2Jcb, 
-			JComboBox<String> p1RaceJcb, JComboBox<String> p2RaceJcb, 
-			UsersFrm usersFrm) {
-		User p1 = (User) player1Jcb.getSelectedItem();
-		User p2 = (User) player2Jcb.getSelectedItem();
+	public static void startPlayActionPerformed(ActionEvent event,UsersFrm usersFrm) {
+		User p1 = (User) usersFrm.player1Jcb.getSelectedItem();
+		User p2 = (User) usersFrm.player2Jcb.getSelectedItem();
 		if (p1.username.equals(p2.username)) {
 			JOptionPane.showMessageDialog(null, "Two Users cannot be identical!");
 			return;
 		}
 		
-		String race1 = (String) p1RaceJcb.getSelectedItem();
-		String race2 = (String) p2RaceJcb.getSelectedItem();
+		String race1 = (String) usersFrm.p1RaceJcb.getSelectedItem();
+		String race2 = (String) usersFrm.p2RaceJcb.getSelectedItem();
 		
 		usersFrm.dispose();
 		new FormUpTroopFrm(p1, p2, race1, race2).setVisible(true);
 		
 	}
 
-	public static void fillUserJcb(JComboBox<User> player1Jcb, JComboBox<User> player2Jcb) {
+	public static void fillUserJcb(UsersFrm usersFrm) {
 		UserList userList = new UserList();
 		for (User user : userList.getList()) {
-			player1Jcb.addItem(user);
-			player2Jcb.addItem(user);
+			usersFrm.player1Jcb.addItem(user);
+			usersFrm.player2Jcb.addItem(user);
 		}
 	}
 
-	public static void fillRaceJcb(JComboBox<String> p1RaceJcb, JComboBox<String> p2RaceJcb) {
+	public static void fillRaceJcb(UsersFrm usersFrm) {
 		RaceList raceList = new RaceList();
 		for (String race: raceList.getRaces()) {
-			p1RaceJcb.addItem(race);
-			p2RaceJcb.addItem(race);
+			usersFrm.p1RaceJcb.addItem(race);
+			usersFrm.p2RaceJcb.addItem(race);
 		}
 	}
 }

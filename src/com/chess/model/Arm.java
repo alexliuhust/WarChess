@@ -20,7 +20,7 @@ public class Arm {
 	public Integer ch_arm;
 	
 	public Integer dama;
-	public Boolean magic;
+	public Boolean magic = false;
 	public Integer ap;
 	public String type;
 	public Integer range;

@@ -27,23 +27,23 @@ public class PlayGround extends JFrame {
 
 	private JPanel contentPane;
 
-	private User p1;
-	private User p2;
-	private JTable p1ArmsTable;
-	private JTable p2ArmsTable;
-	private JTextField p1CbAliasTxt;
-	private JTextField p1CbNameTxt;
-	private JTextField p1CbCurTxt;
-	private JTextField p1CbSpTxt;
-	private JTextField p1CbRaTxt;
-	private JTextField p1CbGATxt;
-	private JTextField p2CbAliasTxt;
-	private JTextField p2CbNameTxt;
-	private JTextField p2CbCurTxt;
-	private JTextField p2CbSpTxt;
-	private JTextField p2CbRaTxt;
-	private JTextField p2CbGATxt;
-	private JTextField tossTxt;
+	public User p1;
+	public User p2;
+	public JTable p1ArmsTable;
+	public JTable p2ArmsTable;
+	public JTextField p1CbAliasTxt;
+	public JTextField p1CbNameTxt;
+	public JTextField p1CbCurTxt;
+	public JTextField p1CbSpTxt;
+	public JTextField p1CbRaTxt;
+	public JTextField p1CbGATxt;
+	public JTextField p2CbAliasTxt;
+	public JTextField p2CbNameTxt;
+	public JTextField p2CbCurTxt;
+	public JTextField p2CbSpTxt;
+	public JTextField p2CbRaTxt;
+	public JTextField p2CbGATxt;
+	public JTextField tossTxt;
 
 	/**
 	 * Create the frame.
@@ -84,10 +84,7 @@ public class PlayGround extends JFrame {
 		btnNewButton.setBounds(290, 491, 84, 31);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PlayGroundService.p1Attackp2(e, 
-				p1CbAliasTxt, p1CbNameTxt, p1CbCurTxt, p1CbSpTxt, p1CbRaTxt, p1CbGATxt, 
-				p2CbAliasTxt, p2CbNameTxt, p2CbCurTxt, p2CbSpTxt, p2CbRaTxt, p2CbGATxt, 
-				p1ArmsTable, p2ArmsTable, p1, p2);
+				p1Attackp2(e);
 			}
 		});
 		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
@@ -96,10 +93,7 @@ public class PlayGround extends JFrame {
 		btnNewButton_1.setBounds(290, 532, 86, 31);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PlayGroundService.p2Attackp1(e, 
-				p1CbAliasTxt, p1CbNameTxt, p1CbCurTxt, p1CbSpTxt, p1CbRaTxt, p1CbGATxt, 
-				p2CbAliasTxt, p2CbNameTxt, p2CbCurTxt, p2CbSpTxt, p2CbRaTxt, p2CbGATxt, 
-				p1ArmsTable, p2ArmsTable, p1, p2);
+				p2Attackp1(e);
 			}
 		});
 		btnNewButton_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
@@ -232,8 +226,7 @@ public class PlayGround extends JFrame {
 		p2ArmsTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				PlayGroundService.getP2SelectedArm(e, 
-				p2CbAliasTxt, p2CbNameTxt, p2CbCurTxt, p2CbSpTxt, p2CbRaTxt, p2CbGATxt, p2ArmsTable, p2);
+				getP2SelectedArm(e);
 			}
 		});
 		p2ArmsTable.setModel(new DefaultTableModel(new Object[][] {},
@@ -258,8 +251,7 @@ public class PlayGround extends JFrame {
 		p1ArmsTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				PlayGroundService.getP1SelectedArm(e, 
-				p1CbAliasTxt, p1CbNameTxt, p1CbCurTxt, p1CbSpTxt, p1CbRaTxt, p1CbGATxt, p1ArmsTable, p1);
+				getP1SelectedArm(e);
 			}
 		});
 		p1ArmsTable.setModel(new DefaultTableModel(new Object[][] {},
@@ -280,7 +272,6 @@ public class PlayGround extends JFrame {
 		p1ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(20);
 		scrollPane.setViewportView(p1ArmsTable);
 		
-		PlayGroundService.fillArmsTables(p1ArmsTable, p2ArmsTable, p1, p2);
 		contentPane.setLayout(null);
 		contentPane.add(lblNewLabel);
 		contentPane.add(scrollPane);
@@ -307,6 +298,24 @@ public class PlayGround extends JFrame {
 		contentPane.add(tossTxt);
 		tossTxt.setColumns(10);
 		tossTxt.setText("0");
+		
+		PlayGroundService.fillArmsTables(this);
+	}
+
+	protected void getP1SelectedArm(MouseEvent e) {
+		PlayGroundService.getP1SelectedArm(e, this);
+	}
+
+	private void getP2SelectedArm(MouseEvent e) {
+		PlayGroundService.getP2SelectedArm(e, this);
+	}
+
+	private void p2Attackp1(ActionEvent e) {
+		PlayGroundService.p2Attackp1(e, this);
+	}
+
+	private void p1Attackp2(ActionEvent e) {
+		PlayGroundService.p1Attackp2(e, this);
 	}
 
 	private void tossAndShow(ActionEvent e) {

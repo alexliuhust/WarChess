@@ -25,18 +25,18 @@ import java.awt.event.ActionEvent;
 
 public class FormUpTroopFrm extends JFrame {
 
-	private JPanel contentPane;
-	private JComboBox<Arm> p1ArmJcb;
-	private JComboBox<Arm> p2ArmJcb;
-	private JTextField p1Alias;
-	private JTextField p2Alias;
-	private JTable p1ArmsTable;
-	private JTable p2ArmsTable;
-	private JTextField p1TcTxt;
-	private JTextField p2TcTxt;
+	public JPanel contentPane;
+	public JComboBox<Arm> p1ArmJcb;
+	public JComboBox<Arm> p2ArmJcb;
+	public JTextField p1Alias;
+	public JTextField p2Alias;
+	public JTable p1ArmsTable;
+	public JTable p2ArmsTable;
+	public JTextField p1TcTxt;
+	public JTextField p2TcTxt;
 	
-	private User p1;
-	private User p2;
+	public User p1;
+	public User p2;
 	
 
 	/**
@@ -187,7 +187,7 @@ public class FormUpTroopFrm extends JFrame {
 	}
 	
 	private void openPlayGround(ActionEvent event) {
-		FormUpService.openPlayGround(event, p1, p2, this);
+		FormUpService.openPlayGround(event, this);
 	}
 }
 

@@ -4,14 +4,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import com.chess.model.User;
@@ -19,11 +16,11 @@ import com.chess.service.UserService;
 
 public class UsersFrm extends JFrame {
 
-	private JPanel contentPane;
-	private JComboBox<User> player1Jcb;
-	private JComboBox<User> player2Jcb;
-	private JComboBox<String> p1RaceJcb;
-	private JComboBox<String> p2RaceJcb;
+	public JPanel contentPane;
+	public JComboBox<User> player1Jcb;
+	public JComboBox<User> player2Jcb;
+	public JComboBox<String> p1RaceJcb;
+	public JComboBox<String> p2RaceJcb;
 
 	/**
 	 * Create the frame.
@@ -89,11 +86,11 @@ public class UsersFrm extends JFrame {
 		p2RaceJcb.setBounds(128, 265, 254, 24);
 		contentPane.add(p2RaceJcb);
 		
-		UserService.fillUserJcb(player1Jcb, player2Jcb);
-		UserService.fillRaceJcb(p1RaceJcb, p2RaceJcb);
+		UserService.fillUserJcb(this);
+		UserService.fillRaceJcb(this);
 	}
 
 	private void startPlayActionPerformed(ActionEvent e) {
-		UserService.startPlayActionPerformed(e, player1Jcb, player2Jcb, p1RaceJcb, p2RaceJcb, this);
+		UserService.startPlayActionPerformed(e, this);
 	}
 }

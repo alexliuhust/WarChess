@@ -12,7 +12,7 @@ public class Calculate {
 	public static void mainAttack(Arm attacker, Arm defender) {
 		if (attacker.cur_scale == 0 || defender.cur_scale == 0 || attacker.ammo == 0) 
 			return;
-		if (attacker.ga.equals("g") && !attacker.type.equals("ra") && defender.ga.equals("a")) 
+		if (attacker.ga.equals("g") && attacker.range < 4 && defender.ga.equals("a")) 
 			return;
 		
 		int attacker_dead = 0, defender_dead = 0;
