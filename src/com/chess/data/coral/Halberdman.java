@@ -8,15 +8,15 @@ public class Halberdman extends Arm {
 		name = "Halberdman";
 		categ = "inf";
 		
-		cost = 190;
+		cost = 80;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    
 		ga = "g";
 		speed = 5;
 		
-		me_arm = 20;     
-		ra_arm = 20;
+		me_arm = 10;     
+		ra_arm = 10;
 		ch_arm = 75;
 		
 		dama = 14;         

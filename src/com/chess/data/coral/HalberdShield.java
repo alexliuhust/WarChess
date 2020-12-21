@@ -8,7 +8,7 @@ public class HalberdShield extends Arm {
 		name = "Halberd-Shield";
 		categ = "inf";
 		
-		cost = 200;
+		cost = 120;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    
@@ -19,13 +19,13 @@ public class HalberdShield extends Arm {
 		ra_arm = 50;
 		ch_arm = 85;
 		
-		dama = 15;         
-		ap = 65;           
+		dama = 14;         
+		ap = 60;           
 		type = "me";   
 		range = 0;
 		
 		d_dama = 13;       
-		d_ap = 65;         
+		d_ap = 60;         
 	}
 
 }

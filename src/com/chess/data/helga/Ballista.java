@@ -8,24 +8,24 @@ public class Ballista extends Arm {
 		name = "Ballista";
 		categ = "art";
 		
-		cost = 370;
+		cost = 260;
 		scale = 20;
 		cur_scale = 20;   
 		uhp = 50;
 		ga = "g";
 		speed = 3;
 		
-		me_arm = 20;
-		ra_arm = 20;
-		ch_arm = 20;
+		me_arm = 40;
+		ra_arm = 40;
+		ch_arm = 40;
 		
 		dama = 110;
 		ap = 60;
 		type = "ra";
-		range = 7;
+		range = 8;
 		ammo = 20;
 		
-		d_dama = 0;
+		d_dama = 5;
 		d_ap = 0;
 	}
 }

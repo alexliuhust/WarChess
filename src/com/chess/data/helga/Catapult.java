@@ -8,7 +8,7 @@ public class Catapult extends Arm {
 		name = "Catapult";
 		categ = "art";
 		
-		cost = 400;
+		cost = 310;
 		scale = 20;
 		cur_scale = 20;   
 		uhp = 50;
@@ -20,12 +20,12 @@ public class Catapult extends Arm {
 		ch_arm = 40;
 		
 		dama = 190;
-		ap = 0;
+		ap = 10;
 		type = "ra";
 		range = 10;
 		ammo = 20;
 		
-		d_dama = 0;
+		d_dama = 5;
 		d_ap = 0;
 	}
 }

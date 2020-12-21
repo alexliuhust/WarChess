@@ -8,7 +8,7 @@ public class Longbowman extends Arm {
 		name = "Longbowman";
 		categ = "inf";
 		
-		cost = 230;
+		cost = 160;
 		scale = 40;
 		cur_scale = 40;   
 		uhp = 50;

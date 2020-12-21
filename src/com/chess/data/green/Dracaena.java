@@ -8,10 +8,10 @@ public class Dracaena extends Arm {
 		name = "Dracaena";
 		categ = "inf";
 		
-		cost = 500;
+		cost = 140;
 		scale = 20;
 		cur_scale = 20;   
-		uhp = 350;    
+		uhp = 360;    
 		ga = "g";
 		speed = 3;
 		

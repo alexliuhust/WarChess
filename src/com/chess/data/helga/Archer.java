@@ -8,7 +8,7 @@ public class Archer extends Arm {
 		name = "Archer";
 		categ = "inf";
 		
-		cost = 210;
+		cost = 150;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;

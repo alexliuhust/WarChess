@@ -8,7 +8,7 @@ public class Herald extends Arm {
 		name = "Herald";
 		categ = "cav";
 		
-		cost = 350;
+		cost = 170;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 130;
@@ -21,7 +21,7 @@ public class Herald extends Arm {
 		
 		dama = 38;
 		ap = 50;
-		type = "me";
+		type = "ch";
 		range = 0;
 		
 		d_dama = 32;

@@ -8,7 +8,7 @@ public class Hunter extends Arm {
 		name = "Hunter";
 		categ = "inf";
 		
-		cost = 260;
+		cost = 180;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;

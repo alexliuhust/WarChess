@@ -8,7 +8,7 @@ public class StagRider extends Arm {
 		name = "Stag Rider";
 		categ = "cav";
 		
-		cost = 370;
+		cost = 200;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 120;
@@ -26,6 +26,6 @@ public class StagRider extends Arm {
 		ammo = 25;
 		
 		d_dama = 60;
-		d_ap = 50;
+		d_ap = 40;
 	}
 }

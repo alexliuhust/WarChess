@@ -8,7 +8,7 @@ public class Aquadragnio extends Arm {
 		name = "Aquadragnio";
 		categ = "art";
 		
-		cost = 520;
+		cost = 330;
 		scale = 20;
 		cur_scale = 20;   
 		uhp = 160;

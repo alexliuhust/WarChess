@@ -8,15 +8,15 @@ public class GreatAxe extends Arm {
 		name = "Great Axe";
 		categ = "inf";
 		
-		cost = 190;
+		cost = 100;
 		scale = 80;
-		cur_scale = 100;   
+		cur_scale = 80;   
 		uhp = 55;    
 		ga = "g";
 		speed = 3;
 		
 		me_arm = 60;     
-		ra_arm = 60;
+		ra_arm = 50;
 		ch_arm = 20;
 		
 		dama = 20;         

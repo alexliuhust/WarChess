@@ -31,11 +31,11 @@ public class ArmList {
 		List<Arm> list2 = new ArrayList<>();
 		list2.add(new WoodInfantry());
 		list2.add(new Shadowblade());
+		list2.add(new Dracaena());       
 		list2.add(new Watcher());
 		list2.add(new Hunter());       
 		list2.add(new PiercingHunter());
-		list2.add(new StagRider());    
-		list2.add(new Dracaena());       
+		list2.add(new StagRider());
 		list2.add(new HawkCavalry());      
 		map.put("Greenfield", list2);
 		

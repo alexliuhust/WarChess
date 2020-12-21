@@ -39,7 +39,7 @@ public class Calculate {
 		PrintLog.attackLog(defender, total_damage, left_armor, real_damage, defender_dead);
 		
 		// Determine whether there is a defense attack
-		if (attacker.type.equals("me")) {
+		if (attacker.type.equals("me") || (attacker.type.equals("ch") && defender.ch_arm >= 70)) {
 			attacker_dead = CalculateHelper.defenceAttack(attacker, defender);
 		}
 		

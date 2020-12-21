@@ -8,7 +8,7 @@ public class Knight extends Arm {
 		name = "Knight";
 		categ = "cav";
 		
-		cost = 350;
+		cost = 150;
 		scale = 30;
 		cur_scale = 30;   
 		uhp = 150;
@@ -19,12 +19,12 @@ public class Knight extends Arm {
 		ra_arm = 80;
 		ch_arm = 80;
 		
-		dama = 40;
+		dama = 50;
 		ap = 10;
 		type = "me";
 		range = 0;
 		
-		d_dama = 36;
+		d_dama = 48;
 		d_ap = 10;
 	}
 }

@@ -8,7 +8,7 @@ public class WoodInfantry extends Arm {
 		name = "Wood Infantry";
 		categ = "inf";
 		
-		cost = 170;
+		cost = 80;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    

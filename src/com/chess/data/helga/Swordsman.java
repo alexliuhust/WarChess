@@ -8,7 +8,7 @@ public class Swordsman extends Arm {
 		name = "Swordsman";
 		categ = "inf";
 		
-		cost = 170;
+		cost = 90;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    

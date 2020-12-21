@@ -8,7 +8,7 @@ public class PiercingHunter extends Arm {
 		name = "Piercing Hunter";
 		categ = "inf";
 		
-		cost = 270;
+		cost = 180;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;
@@ -19,7 +19,7 @@ public class PiercingHunter extends Arm {
 		ra_arm = 30;
 		ch_arm = 0;
 		
-		dama = 39;
+		dama = 42;
 		ap = 60;
 		type = "ra";
 		range = 7;

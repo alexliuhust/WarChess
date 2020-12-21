@@ -8,7 +8,7 @@ public class Spearman extends Arm {
 		name = "Spearman";
 		categ = "inf";
 		
-		cost = 190;
+		cost = 110;
 		scale = 100;
 		cur_scale = 100;   
 		uhp = 50;    
@@ -17,15 +17,15 @@ public class Spearman extends Arm {
 		
 		me_arm = 40;     
 		ra_arm = 50;
-		ch_arm = 100;
+		ch_arm = 80;
 		
-		dama = 15;         
+		dama = 14;         
 		ap = 50;           
 		type = "me";   
 		range = 0;
 		
 		d_dama = 11;       
-		d_ap = 35;       
+		d_ap = 50;       
 	}
 
 }

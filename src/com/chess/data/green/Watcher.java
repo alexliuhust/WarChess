@@ -8,7 +8,7 @@ public class Watcher extends Arm {
 		name = "Watcher";
 		categ = "inf";
 		
-		cost = 260;
+		cost = 180;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;
@@ -19,13 +19,13 @@ public class Watcher extends Arm {
 		ra_arm = 30;
 		ch_arm = 30;
 		
-		dama = 37;
-		ap = 35;
+		dama = 30;
+		ap = 0;
 		type = "ra";
 		range = 6;
-		ammo = 35;
+		ammo = 26;
 		
-		d_dama = 20;
-		d_ap = 20;
+		d_dama = 25;
+		d_ap = 25;
 	}
 }

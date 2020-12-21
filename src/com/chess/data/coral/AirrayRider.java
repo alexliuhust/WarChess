@@ -8,7 +8,7 @@ public class AirrayRider extends Arm {
 		name = "Airray Rider";
 		categ = "cav";
 		
-		cost = 380;
+		cost = 200;
 		scale = 20;
 		cur_scale = 20;   
 		uhp = 160;

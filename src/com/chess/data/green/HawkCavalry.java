@@ -8,7 +8,7 @@ public class HawkCavalry extends Arm {
 		name = "Hawk Cavalry";
 		categ = "cav";
 		
-		cost = 370;
+		cost = 220;
 		scale = 20;
 		cur_scale = 20;   
 		uhp = 130;

@@ -8,7 +8,7 @@ public class MarinesLight extends Arm {
 		name = "Marines-Light";
 		categ = "inf";
 		
-		cost = 240;
+		cost = 180;
 		scale = 60;
 		cur_scale = 60;   
 		uhp = 50;
@@ -17,13 +17,13 @@ public class MarinesLight extends Arm {
 		
 		me_arm = 10;
 		ra_arm = 10;
-		ch_arm = 80;
+		ch_arm = 75;
 		
 		dama = 30;
 		ap = 20;
 		type = "ra";
 		range = 6;
-		ammo = 30;
+		ammo = 25;
 		
 		d_dama = 14;
 		d_ap = 35;

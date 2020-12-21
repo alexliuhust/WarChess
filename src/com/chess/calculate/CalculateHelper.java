@@ -17,7 +17,7 @@ public class CalculateHelper {
 		
 		// Calculate how much the attacker's armor can do
 		int left_armor = attacker.me_arm - defender.d_ap;
-		if (left_armor < 0) left_armor = 0;
+		if (left_armor < 0) left_armor /= 5;
 		
 		// Calculate how many units will die in the attacker's arm
 		int real_damage = total_damage * (100 - left_armor) / 100;
@@ -141,7 +141,7 @@ public class CalculateHelper {
 			attacker.name = attacker.name + "(melee)";
 			attacker.range = 0;
 			attacker.ammo = -1;
-			attacker.dama = attacker.d_dama;
+			attacker.dama = attacker.d_dama + 2;
 			attacker.ap = attacker.d_ap;
 			attacker.type = "me";
 		}
