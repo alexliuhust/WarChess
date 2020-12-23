@@ -35,9 +35,11 @@ public class PlayGroundService {
 		//checkTotalDestruction(p2, p1, attacker, defender);
 		
 		fillCombatInfoPane(playGround.p1CbAliasTxt,playGround.p1CbNameTxt,playGround.p1CbCurTxt,
-				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, defender);
+				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, 
+				playGround.p1OverviewTxt, playGround.p1OutputTxt, playGround.p1DefenseTxt, defender);
 		fillCombatInfoPane(playGround.p2CbAliasTxt,playGround.p2CbNameTxt,playGround.p2CbCurTxt,
-				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt, attacker);
+				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt, 
+				playGround.p2OverviewTxt, playGround.p2OutputTxt, playGround.p2DefenseTxt,attacker);
 		fillArmsTables(playGround);
 	}
 
@@ -55,14 +57,18 @@ public class PlayGroundService {
 		//checkTotalDestruction(p1, p2, attacker, defender);
 		
 		fillCombatInfoPane(playGround.p1CbAliasTxt,playGround.p1CbNameTxt,playGround.p1CbCurTxt,
-				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, attacker);
+				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, 
+				playGround.p1OverviewTxt, playGround.p1OutputTxt, playGround.p1DefenseTxt, attacker);
 		fillCombatInfoPane(playGround.p2CbAliasTxt,playGround.p2CbNameTxt,playGround.p2CbCurTxt,
-				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt, defender);
+				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt,
+				playGround.p2OverviewTxt, playGround.p2OutputTxt, playGround.p2DefenseTxt,defender);
 		fillArmsTables(playGround);
 	}
 
 	public static void fillCombatInfoPane(JTextField pCbAliasTxt,JTextField pCbNameTxt,JTextField pCbCurTxt,
-		JTextField pCbSpTxt,JTextField pCbRaTxt,JTextField pCbGATxt,Arm arm) {
+		JTextField pCbSpTxt,JTextField pCbRaTxt,JTextField pCbGATxt,
+		JTextField pOverviewTxt, JTextField pOutputTxt, JTextField pDefenseTxt,
+		Arm arm) {
 		
 		pCbAliasTxt.setText(arm.alias);
 		pCbNameTxt.setText(arm.name);
@@ -70,6 +76,9 @@ public class PlayGroundService {
 		pCbSpTxt.setText(String.valueOf(arm.speed));
 		pCbRaTxt.setText(arm.showRangeAndAmmo());
 		pCbGATxt.setText(arm.ga);
+		pOverviewTxt.setText(arm.overview);
+		pOutputTxt.setText(String.valueOf(arm.output));
+		pDefenseTxt.setText(String.valueOf(arm.defense));
 	}
 	
 	public static void getP2SelectedArm(MouseEvent e, PlayGround playGround) {
@@ -77,7 +86,8 @@ public class PlayGroundService {
 		String alias = (String) playGround.p2ArmsTable.getValueAt(row, 0);
 		Arm arm = playGround.p2.troop.get(alias);
 		fillCombatInfoPane(playGround.p2CbAliasTxt,playGround.p2CbNameTxt,playGround.p2CbCurTxt,
-				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt, arm);
+				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt, 
+				playGround.p2OverviewTxt, playGround.p2OutputTxt, playGround.p2DefenseTxt, arm);
 	}
 
 	public static void getP1SelectedArm(MouseEvent e,PlayGround playGround) {
@@ -85,7 +95,8 @@ public class PlayGroundService {
 		String alias = (String) playGround.p1ArmsTable.getValueAt(row, 0);
 		Arm arm = playGround.p1.troop.get(alias);
 		fillCombatInfoPane(playGround.p1CbAliasTxt,playGround.p1CbNameTxt,playGround.p1CbCurTxt,
-				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, arm);
+				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, 
+				playGround.p1OverviewTxt, playGround.p1OutputTxt, playGround.p1DefenseTxt, arm);
 	}
 
 	public static void fillArmsTables(PlayGround playGround) {

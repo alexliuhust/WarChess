@@ -44,6 +44,12 @@ public class PlayGround extends JFrame {
 	public JTextField p2CbRaTxt;
 	public JTextField p2CbGATxt;
 	public JTextField tossTxt;
+	public JTextField p1OverviewTxt;
+	public JTextField p2OverviewTxt;
+	public JTextField p1OutputTxt;
+	public JTextField p1DefenseTxt;
+	public JTextField p2OutputTxt;
+	public JTextField p2DefenseTxt;
 
 	/**
 	 * Create the frame.
@@ -73,11 +79,11 @@ public class PlayGround extends JFrame {
 		scrollPane_1.setBounds(128, 217, 519, 186);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(32, 434, 252, 190);
+		panel.setBounds(32, 434, 252, 253);
 		panel.setBorder(new TitledBorder(null, p1.username, TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(382, 434, 252, 190);
+		panel_1.setBounds(382, 434, 252, 253);
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), p2.username, TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		JButton btnNewButton = new JButton("==>>");
@@ -117,34 +123,34 @@ public class PlayGround extends JFrame {
 		p2CbNameTxt.setColumns(10);
 		
 		p2CbCurTxt = new JTextField();
-		p2CbCurTxt.setBounds(16, 82, 220, 21);
+		p2CbCurTxt.setBounds(16, 110, 220, 21);
 		p2CbCurTxt.setEditable(false);
 		p2CbCurTxt.setColumns(10);
 		
 		JLabel lblNewLabel_3_3 = new JLabel("Speed");
-		lblNewLabel_3_3.setBounds(28, 121, 34, 16);
+		lblNewLabel_3_3.setBounds(28, 130, 34, 16);
 		lblNewLabel_3_3.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		
 		JLabel lblNewLabel_3_1_1 = new JLabel("Range");
-		lblNewLabel_3_1_1.setBounds(113, 121, 35, 16);
+		lblNewLabel_3_1_1.setBounds(113, 130, 35, 16);
 		lblNewLabel_3_1_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		
 		JLabel lblNewLabel_3_2_1 = new JLabel("G/A");
-		lblNewLabel_3_2_1.setBounds(202, 121, 34, 16);
+		lblNewLabel_3_2_1.setBounds(202, 130, 34, 16);
 		lblNewLabel_3_2_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		
 		p2CbSpTxt = new JTextField();
-		p2CbSpTxt.setBounds(16, 143, 46, 21);
+		p2CbSpTxt.setBounds(16, 152, 46, 21);
 		p2CbSpTxt.setEditable(false);
 		p2CbSpTxt.setColumns(10);
 		
 		p2CbRaTxt = new JTextField();
-		p2CbRaTxt.setBounds(102, 143, 46, 21);
+		p2CbRaTxt.setBounds(102, 152, 46, 21);
 		p2CbRaTxt.setEditable(false);
 		p2CbRaTxt.setColumns(10);
 		
 		p2CbGATxt = new JTextField();
-		p2CbGATxt.setBounds(190, 143, 46, 21);
+		p2CbGATxt.setBounds(190, 152, 46, 21);
 		p2CbGATxt.setEditable(false);
 		p2CbGATxt.setColumns(10);
 		panel_1.setLayout(null);
@@ -179,34 +185,34 @@ public class PlayGround extends JFrame {
 		p1CbNameTxt.setColumns(10);
 		
 		p1CbCurTxt = new JTextField();
-		p1CbCurTxt.setBounds(16, 82, 220, 21);
+		p1CbCurTxt.setBounds(16, 110, 220, 21);
 		p1CbCurTxt.setEditable(false);
 		p1CbCurTxt.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Speed");
-		lblNewLabel_3.setBounds(28, 121, 34, 16);
+		lblNewLabel_3.setBounds(28, 130, 34, 16);
 		lblNewLabel_3.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Range");
-		lblNewLabel_3_1.setBounds(113, 121, 35, 16);
+		lblNewLabel_3_1.setBounds(113, 130, 35, 16);
 		lblNewLabel_3_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		
 		JLabel lblNewLabel_3_2 = new JLabel("G/A");
-		lblNewLabel_3_2.setBounds(202, 121, 34, 16);
+		lblNewLabel_3_2.setBounds(202, 130, 34, 16);
 		lblNewLabel_3_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		
 		p1CbSpTxt = new JTextField();
-		p1CbSpTxt.setBounds(16, 143, 46, 21);
+		p1CbSpTxt.setBounds(16, 152, 46, 21);
 		p1CbSpTxt.setEditable(false);
 		p1CbSpTxt.setColumns(10);
 		
 		p1CbRaTxt = new JTextField();
-		p1CbRaTxt.setBounds(102, 143, 46, 21);
+		p1CbRaTxt.setBounds(102, 152, 46, 21);
 		p1CbRaTxt.setEditable(false);
 		p1CbRaTxt.setColumns(10);
 		
 		p1CbGATxt = new JTextField();
-		p1CbGATxt.setBounds(190, 143, 46, 21);
+		p1CbGATxt.setBounds(190, 152, 46, 21);
 		p1CbGATxt.setEditable(false);
 		p1CbGATxt.setColumns(10);
 		panel.setLayout(null);
@@ -278,9 +284,65 @@ public class PlayGround extends JFrame {
 		contentPane.add(lblP);
 		contentPane.add(scrollPane_1);
 		contentPane.add(panel);
+		
+		p1OverviewTxt = new JTextField();
+		p1OverviewTxt.setEditable(false);
+		p1OverviewTxt.setColumns(10);
+		p1OverviewTxt.setBounds(16, 82, 220, 21);
+		panel.add(p1OverviewTxt);
+		
+		JLabel lblNewLabel_4 = new JLabel("Output");
+		lblNewLabel_4.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
+		lblNewLabel_4.setBounds(16, 188, 45, 15);
+		panel.add(lblNewLabel_4);
+		
+		p1OutputTxt = new JTextField();
+		p1OutputTxt.setEditable(false);
+		p1OutputTxt.setBounds(76, 188, 91, 17);
+		panel.add(p1OutputTxt);
+		p1OutputTxt.setColumns(10);
+		
+		JLabel lblNewLabel_4_1 = new JLabel("Defense");
+		lblNewLabel_4_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
+		lblNewLabel_4_1.setBounds(16, 213, 45, 15);
+		panel.add(lblNewLabel_4_1);
+		
+		p1DefenseTxt = new JTextField();
+		p1DefenseTxt.setEditable(false);
+		p1DefenseTxt.setColumns(10);
+		p1DefenseTxt.setBounds(76, 211, 91, 17);
+		panel.add(p1DefenseTxt);
 		contentPane.add(btnNewButton_1);
 		contentPane.add(btnNewButton);
 		contentPane.add(panel_1);
+		
+		p2OverviewTxt = new JTextField();
+		p2OverviewTxt.setEditable(false);
+		p2OverviewTxt.setColumns(10);
+		p2OverviewTxt.setBounds(16, 82, 220, 21);
+		panel_1.add(p2OverviewTxt);
+		
+		JLabel lblNewLabel_4_2 = new JLabel("Output");
+		lblNewLabel_4_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
+		lblNewLabel_4_2.setBounds(16, 187, 45, 15);
+		panel_1.add(lblNewLabel_4_2);
+		
+		p2OutputTxt = new JTextField();
+		p2OutputTxt.setEditable(false);
+		p2OutputTxt.setColumns(10);
+		p2OutputTxt.setBounds(76, 187, 91, 17);
+		panel_1.add(p2OutputTxt);
+		
+		JLabel lblNewLabel_4_1_1 = new JLabel("Defense");
+		lblNewLabel_4_1_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
+		lblNewLabel_4_1_1.setBounds(16, 212, 45, 15);
+		panel_1.add(lblNewLabel_4_1_1);
+		
+		p2DefenseTxt = new JTextField();
+		p2DefenseTxt.setEditable(false);
+		p2DefenseTxt.setColumns(10);
+		p2DefenseTxt.setBounds(76, 210, 91, 17);
+		panel_1.add(p2DefenseTxt);
 		
 		JButton btnNewButton_2 = new JButton("Toss");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -302,7 +364,7 @@ public class PlayGround extends JFrame {
 		PlayGroundService.fillArmsTables(this);
 	}
 
-	protected void getP1SelectedArm(MouseEvent e) {
+	private void getP1SelectedArm(MouseEvent e) {
 		PlayGroundService.getP1SelectedArm(e, this);
 	}
 

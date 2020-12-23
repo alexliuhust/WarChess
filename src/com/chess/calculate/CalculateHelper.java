@@ -23,10 +23,8 @@ public class CalculateHelper {
 		int real_damage = total_damage * (100 - left_armor) / 100;
 		int dead = real_damage / attacker.uhp;
 		if (dead == 0) {
-			if (real_damage < (attacker.uhp / 2))
-				dead = 0;
-			else 
-				dead = 1;
+			if (real_damage < (attacker.uhp / 2)) dead = 0;
+			else dead = 1;
 		}
 		
 		PrintLog.counterLog(attacker, total_damage, left_armor, real_damage, dead);
@@ -40,22 +38,22 @@ public class CalculateHelper {
 	 * @return
 	 */
 	public static int calculateLeftArmor(Arm attacker, Arm defender) {
+		// Magic damage won't be blocked by any kind of armor
 		if (attacker.magic) return 0;
 		
 		int left_armor = 0;
 		if (attacker.type.equals("me")) 
 			left_armor = defender.me_arm - attacker.ap;
 		else if (attacker.type.equals("ra")) {
-			if (attacker.categ.equals("art"))
-				left_armor = defender.ra_arm / 2 - attacker.ap;
-			else 
-				left_armor = defender.ra_arm - attacker.ap;
+			// If the range damage is from an artillery arm, the default range-armor will be halved
+			if (attacker.categ.equals("art")) left_armor = defender.ra_arm / 2 - attacker.ap;
+			else left_armor = defender.ra_arm - attacker.ap;
 		}
-		else 
-			left_armor = defender.ch_arm - attacker.ap;
+		else left_armor = defender.ch_arm - attacker.ap;
 		
+		// If the attacker's armor-piercing is over-saturated, 
+		// the exceeded armor-piercing won't effect much as the normal case
 		if (left_armor < 0) left_armor /= 5;
-		
 		return left_armor;
 	}
 	
@@ -137,6 +135,8 @@ public class CalculateHelper {
 	 */
 	public static void updateCurrentState(Arm attacker, Arm defender, int attacker_dead, int defender_dead) {
 		attacker.ammo--;
+		// If the range attacker's ammo runs out, it will become a melee-arm, 
+		// with its melee damage a little bigger than its defense melee damage
 		if (attacker.ammo == 0) {
 			attacker.name = attacker.name + "(melee)";
 			attacker.range = 0;

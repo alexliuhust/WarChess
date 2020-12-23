@@ -29,6 +29,10 @@ public class Arm {
 	public Integer d_dama;
 	public Integer d_ap;
 	
+	public Integer defense;
+	public Integer output;
+	public String overview;
+	
 	public Arm() {}
 	
 	/**
@@ -60,7 +64,11 @@ public class Arm {
 		this.ammo      = target.ammo;
 		
 		this.d_dama    = target.d_dama;       
-		this.d_ap      = target.d_ap;         
+		this.d_ap      = target.d_ap;
+		
+		this.overview  = target.overview;
+		this.output    = target.output;
+		this.defense   = target.defense;
 	}
 
 	public String showCurrentScale() {

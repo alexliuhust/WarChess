@@ -45,6 +45,9 @@ public class DataAccess {
 				arm.d_ap      = rs.getInt("d_ap");
 				int mark = rs.getInt("magic");
 				arm.magic = (mark == 1);
+				arm.defense   = rs.getInt("defense");
+				arm.output    = rs.getInt("output");
+				arm.overview  = rs.getString("overview");
 				
 				map.put(arm.name, arm);
 			}

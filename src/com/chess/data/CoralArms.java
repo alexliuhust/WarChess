@@ -25,9 +25,4 @@ public class CoralArms {
 	public Arm getArm(String name) {
 		return map.get(name);
 	}
-
-	public static void main(String[] args) {
-		CoralArms c = new CoralArms();
-		c.allArms();
-	}
 }

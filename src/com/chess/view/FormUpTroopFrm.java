@@ -132,6 +132,9 @@ public class FormUpTroopFrm extends JFrame {
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openPlayGround(e);
+				System.out.println("=======================================================");
+				System.out.println("* * * * * * * * * * * BATTLE  LOG * * * * * * * * * * *");
+				System.out.println("=======================================================");
 			}
 		});
 		btnNewButton_6.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
