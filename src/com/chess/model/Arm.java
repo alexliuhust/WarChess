@@ -98,6 +98,13 @@ public class Arm {
 		return sb.toString();
 	}
 	
+	public String showGA() {
+		if (ga.equals("g")) 
+			return "ground";
+		else 
+			return "air";
+	}
+	
 	@Override
 	public String toString() {
 		return name + " [$" + cost + "]";

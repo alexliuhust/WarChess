@@ -75,7 +75,7 @@ public class PlayGroundService {
 		pCbCurTxt.setText(arm.showCurrentScale());
 		pCbSpTxt.setText(String.valueOf(arm.speed));
 		pCbRaTxt.setText(arm.showRangeAndAmmo());
-		pCbGATxt.setText(arm.ga);
+		pCbGATxt.setText(arm.showGA());
 		pOverviewTxt.setText(arm.overview);
 		pOutputTxt.setText(String.valueOf(arm.output));
 		pDefenseTxt.setText(String.valueOf(arm.defense));

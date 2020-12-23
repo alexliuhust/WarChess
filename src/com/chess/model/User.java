@@ -25,7 +25,7 @@ public class User {
 			item[2] = arm.showCurrentScale();
 			item[3] = String.valueOf(arm.speed);
 			item[4] = arm.showRangeAndAmmo();
-			item[5] = arm.ga;
+			item[5] = arm.showGA();
 			
 			list.add(item);
 		}
