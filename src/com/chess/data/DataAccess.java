@@ -3,6 +3,7 @@ package com.chess.data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Map;
 
 import com.chess.model.Arm;
@@ -14,6 +15,31 @@ public class DataAccess {
 	
 	public static ResultSet getArmsByRace(Connection con, String race) throws Exception {
 		String sql = "select * from arm where race = ?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, race);
+		return pstmt.executeQuery();
+	}
+	
+	public static void getAllArmNames(Connection con, List<String> allNames, String race) {
+		try {
+			con = dbUtil.getCon();
+			ResultSet rs = DataAccess.getArmNamesByRace(con, race);
+			while (rs.next()) {
+				allNames.add(rs.getString("name"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				dbUtil.closeCon(con);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static ResultSet getArmNamesByRace(Connection con, String race) throws Exception {
+		String sql = "select name from arm where race = ?";
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, race);
 		return pstmt.executeQuery();

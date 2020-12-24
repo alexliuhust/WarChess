@@ -1,7 +1,9 @@
 package com.chess.data;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.chess.model.Arm;
@@ -11,7 +13,6 @@ public class HelgaArms {
 	
 	public HelgaArms() {
 		map = new HashMap<>();
-		
 		Connection con = null;
 		DataAccess.setArmInfo(con, map, "helga empire");
 	}
@@ -20,6 +21,13 @@ public class HelgaArms {
 		for (String key : map.keySet()) {
 			System.out.println(key + ": " + map.get(key));
 		}
+	}
+	
+	public List<String> getAllNames() {
+		List<String> allNames = new ArrayList<>();
+		Connection con = null;
+		DataAccess.getAllArmNames(con, allNames, "helga empire");
+		return allNames;
 	}
 	
 	public Arm getArm(String name) {
