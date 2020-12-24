@@ -11,6 +11,7 @@ public class RaceList {
 		list.add("Helga Empire");
 		list.add("Greenfield");
 		list.add("Coral City");
+		list.add("Demon Hill");
 	}
 	public List<String> getRaces() {
 		return this.list;

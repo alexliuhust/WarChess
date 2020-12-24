@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.chess.data.CoralArms;
+import com.chess.data.DemonArms;
 import com.chess.data.GreenArms;
 import com.chess.data.HelgaArms;
 import com.chess.model.Arm;
@@ -52,6 +53,18 @@ public class ArmList {
 		list3.add(coralArms.getArm("Airray Rider"));
 		list3.add(coralArms.getArm("Aquadragnio"));
 		map.put("Coral City", list3);
+		
+		List<Arm> list4 = new ArrayList<>();
+		DemonArms demonArms = new DemonArms();
+		list4.add(demonArms.getArm("Hound"));
+		list4.add(demonArms.getArm("Hellgue"));
+		list4.add(demonArms.getArm("Executioner"));
+		list4.add(demonArms.getArm("Death Javelin"));
+		list4.add(demonArms.getArm("Luniadeon"));
+		list4.add(demonArms.getArm("Demonvoy"));
+		list4.add(demonArms.getArm("Hell Rider"));
+		list4.add(demonArms.getArm("Abysslon"));
+		map.put("Demon Hill", list4);
 		
 	}
 	
