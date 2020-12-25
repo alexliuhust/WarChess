@@ -17,6 +17,9 @@ public class CalculateHelper {
 		
 		// Calculate how much the attacker's armor can do
 		int left_armor = attacker.me_arm - defender.d_ap;
+		if (defender.d_ap > 50 && attacker.me_arm < 30) {
+			left_armor = attacker.me_arm + 30;
+		}
 		if (left_armor < 0) left_armor /= 5;
 		
 		// Calculate how many units will die in the attacker's arm
@@ -42,14 +45,36 @@ public class CalculateHelper {
 		if (attacker.magic) return 0;
 		
 		int left_armor = 0;
-		if (attacker.type.equals("me")) 
-			left_armor = defender.me_arm - attacker.ap;
+		if (attacker.type.equals("me")) {
+			// If the attacker's armor-piercing is much larger than the defender's melee armor
+			// the defender will have a high dodge
+			if (attacker.ap > 50 && defender.me_arm < 30) {
+				left_armor = defender.me_arm + 30;
+			} else {
+				left_armor = defender.me_arm - attacker.ap;
+			}
+		}
 		else if (attacker.type.equals("ra")) {
 			// If the range damage is from an artillery arm, the default range-armor will be halved
 			if (attacker.categ.equals("art")) left_armor = defender.ra_arm / 2 - attacker.ap;
-			else left_armor = defender.ra_arm - attacker.ap;
+			else {
+				// If the attacker's armor-piercing is much larger than the defender's melee armor
+				// the defender will have a high dodge
+				if (attacker.ap > 50 && defender.ra_arm < 30) {
+					left_armor = defender.ra_arm + 30;
+				} else {
+					left_armor = defender.ra_arm - attacker.ap;
+				}
+			}
 		}
-		else left_armor = defender.ch_arm - attacker.ap;
+		else {
+			if (defender.ch_arm > 50) {
+				left_armor = defender.ch_arm;
+			} else {
+				left_armor = defender.ch_arm - attacker.ap;
+			}
+			
+		}
 		
 		// If the attacker's armor-piercing is over-saturated, 
 		// the exceeded armor-piercing won't effect much as the normal case
