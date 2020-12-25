@@ -27,9 +27,9 @@ public class PlayGroundService {
 			return;
 		}
 		String alias = playGround.p1CbAliasTxt.getText();
-		Arm defender = playGround.p1.troop.get(alias);
+		Arm defender = playGround.p1.getArmByAlias(alias);
 		alias = playGround.p2CbAliasTxt.getText();
-		Arm attacker = playGround.p2.troop.get(alias);
+		Arm attacker = playGround.p2.getArmByAlias(alias);
 		
 		Calculate.mainAttack(attacker, defender);
 		//checkTotalDestruction(p2, p1, attacker, defender);
@@ -49,9 +49,9 @@ public class PlayGroundService {
 			return;
 		}
 		String alias = playGround.p1CbAliasTxt.getText();
-		Arm attacker = playGround.p1.troop.get(alias);
+		Arm attacker = playGround.p1.getArmByAlias(alias);
 		alias = playGround.p2CbAliasTxt.getText();
-		Arm defender = playGround.p2.troop.get(alias);
+		Arm defender = playGround.p2.getArmByAlias(alias);
 		
 		Calculate.mainAttack(attacker, defender);
 		//checkTotalDestruction(p1, p2, attacker, defender);
@@ -84,7 +84,7 @@ public class PlayGroundService {
 	public static void getP2SelectedArm(MouseEvent e, PlayGround playGround) {
 		int row = playGround.p2ArmsTable.getSelectedRow();
 		String alias = (String) playGround.p2ArmsTable.getValueAt(row, 0);
-		Arm arm = playGround.p2.troop.get(alias);
+		Arm arm = playGround.p2.getArmByAlias(alias);
 		fillCombatInfoPane(playGround.p2CbAliasTxt,playGround.p2CbNameTxt,playGround.p2CbCurTxt,
 				playGround.p2CbSpTxt,playGround.p2CbRaTxt,playGround.p2CbGATxt, 
 				playGround.p2OverviewTxt, playGround.p2OutputTxt, playGround.p2DefenseTxt, arm);
@@ -93,7 +93,7 @@ public class PlayGroundService {
 	public static void getP1SelectedArm(MouseEvent e,PlayGround playGround) {
 		int row = playGround.p1ArmsTable.getSelectedRow();
 		String alias = (String) playGround.p1ArmsTable.getValueAt(row, 0);
-		Arm arm = playGround.p1.troop.get(alias);
+		Arm arm = playGround.p1.getArmByAlias(alias);
 		fillCombatInfoPane(playGround.p1CbAliasTxt,playGround.p1CbNameTxt,playGround.p1CbCurTxt,
 				playGround.p1CbSpTxt,playGround.p1CbRaTxt,playGround.p1CbGATxt, 
 				playGround.p1OverviewTxt, playGround.p1OutputTxt, playGround.p1DefenseTxt, arm);

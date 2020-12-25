@@ -5,7 +5,7 @@ import java.util.*;
 public class User {
 
 	public String username;
-	public Map<String,Arm> troop;
+	private Map<String,Arm> troop;
 	
 	public User() {
 		this.troop = new HashMap<>();
@@ -45,6 +45,14 @@ public class User {
 			}
 			System.out.println();
 		}
+	}
+	
+	public boolean hasAlias(String alias) {
+		return this.troop.containsKey(alias);
+	}
+	
+	public Arm getArmByAlias(String alias) {
+		return this.troop.get(alias);
 	}
 	
 	public void addArm(String alias, Arm arm) {

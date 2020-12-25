@@ -34,7 +34,7 @@ public class FormUpService {
 		Integer cur_cost = Integer.parseInt(pTcTxt.getText());
 		for(int i = 0; i < rows.length; i++) {
 			String alias = (String) pArmsTable.getValueAt(rows[i], 0);
-			cur_cost -= p.troop.get(alias).cost;
+			cur_cost -= p.getArmByAlias(alias).cost;
 			p.removeArm(alias);
 		}
 		for(int i = 0; i < rows.length; i++) {
@@ -54,7 +54,7 @@ public class FormUpService {
 		if (StringUtil.isEmpty(alias)) {
 			JOptionPane.showMessageDialog(null, "Alias cannot be empty!");
 			return;
-		}else if (p.troop.containsKey(alias)) {
+		}else if (p.hasAlias(alias)) {
 			JOptionPane.showMessageDialog(null, "Alias has to be unique!");
 			return;
 		}
