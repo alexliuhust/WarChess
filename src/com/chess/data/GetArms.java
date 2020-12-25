@@ -11,28 +11,28 @@ import com.chess.model.Arm;
 public class GetArms {
 
 	private Map<String, Arm> map;
-	private String race;
-	public GetArms(String race) {
-		this.race = race;
+	public GetArms() {
 		map = new HashMap<>();
 	}
-	private void setArmInfo() {
-		Connection con = null;
-		map.clear();
-		DataAccess.setArmInfo(con, map, this.race);
+	
+	public List<Arm> getAllArms(String race) {
+		setArmInfo(race);
+		List<Arm> allArms = new ArrayList<>();
+		for (String name : getAllNames(race)) {
+			allArms.add(map.get(name));
+		}
+		return allArms;
 	}
-	private List<String> getAllNames() {
+	
+	private void setArmInfo(String race) {
+		Connection con = null;
+		DataAccess.setArmInfo(con, map, race);
+	}
+	private List<String> getAllNames(String race) {
 		List<String> allNames = new ArrayList<>();
 		Connection con = null;
 		DataAccess.getAllArmNames(con, allNames, race);
 		return allNames;
 	}
-	public List<Arm> getAllArms() {
-		setArmInfo();
-		List<Arm> allArms = new ArrayList<>();
-		for (String name : getAllNames()) {
-			allArms.add(map.get(name));
-		}
-		return allArms;
-	}
+	
 }
