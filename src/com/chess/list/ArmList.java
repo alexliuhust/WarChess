@@ -13,12 +13,11 @@ public class ArmList {
 	
 	public ArmList() {
 		this.map = new HashMap<>();
-		
+		RaceList raceList = new RaceList();
 		GetArms getArms = new GetArms();
-		map.put("Helga Empire", getArms.getAllArms("Helga Empire"));
-		map.put("Greenfield", getArms.getAllArms("Greenfield"));
-		map.put("Coral City", getArms.getAllArms("Coral City"));
-		map.put("Demon Hill", getArms.getAllArms("Demon Hill"));
+		for (String race : raceList.getRaces()) {
+			map.put(race, getArms.getAllArms(race));
+		}
 	}
 	
 	public List<Arm> getList(String race) {

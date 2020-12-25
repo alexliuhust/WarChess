@@ -65,11 +65,11 @@ public class FormUpTroopFrm extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("P1 " + player1.username);
+		JLabel lblNewLabel = new JLabel("P1 " + player1.getUsername());
 		lblNewLabel.setBounds(103, 37, 90, 20);
 		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		
-		JLabel lblP = new JLabel("P2 " + player2.username);
+		JLabel lblP = new JLabel("P2 " + player2.getUsername());
 		lblP.setBounds(446, 37, 93, 20);
 		lblP.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 		

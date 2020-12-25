@@ -16,7 +16,7 @@ public class UserService {
 	public static void startPlayActionPerformed(ActionEvent event,UsersFrm usersFrm) {
 		User p1 = (User) usersFrm.player1Jcb.getSelectedItem();
 		User p2 = (User) usersFrm.player2Jcb.getSelectedItem();
-		if (p1.username.equals(p2.username)) {
+		if (p1.getUsername().equals(p2.getUsername())) {
 			JOptionPane.showMessageDialog(null, "Two Users cannot be identical!");
 			return;
 		}

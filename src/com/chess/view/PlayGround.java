@@ -64,14 +64,14 @@ public class PlayGround extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel(p1.username);
+		JLabel lblNewLabel = new JLabel(p1.getUsername());
 		lblNewLabel.setBounds(24, 97, 94, 25);
 		lblNewLabel.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(128, 25, 519, 186);
 		
-		JLabel lblP = new JLabel(p2.username);
+		JLabel lblP = new JLabel(p2.getUsername());
 		lblP.setBounds(21, 301, 97, 25);
 		lblP.setFont(new Font("Segoe UI Semibold", Font.BOLD, 18));
 		
@@ -80,11 +80,11 @@ public class PlayGround extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(32, 434, 252, 253);
-		panel.setBorder(new TitledBorder(null, p1.username, TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		panel.setBorder(new TitledBorder(null, p1.getUsername(), TitledBorder.CENTER, TitledBorder.TOP, null, null));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(382, 434, 252, 253);
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), p2.username, TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), p2.getUsername(), TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		
 		JButton btnNewButton = new JButton("==>>");
 		btnNewButton.setBounds(290, 491, 84, 31);

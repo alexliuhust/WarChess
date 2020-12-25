@@ -4,7 +4,7 @@ import java.util.*;
 
 public class User {
 
-	public String username;
+	private String username;
 	private Map<String,Arm> troop;
 	
 	public User() {
@@ -13,6 +13,10 @@ public class User {
 	public User(String name) {
 		this.troop = new HashMap<>();
 		this.username = name;
+	}
+	
+	public String getUsername() {
+		return this.username;
 	}
 	
 	public List<String[]> getSortedItems() {
