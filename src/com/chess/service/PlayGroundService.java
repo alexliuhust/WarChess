@@ -9,16 +9,16 @@ import javax.swing.table.DefaultTableModel;
 
 import com.chess.calculate.Calculate;
 import com.chess.model.Arm;
-import com.chess.model.User;
+//import com.chess.model.User;
 import com.chess.util.StringUtil;
 import com.chess.view.PlayGround;
 
 public class PlayGroundService {
 	
-	public static void checkTotalDestruction(User pAtt, User pDef, Arm attacker, Arm defender) {
-		if (attacker.cur_scale == 0) pAtt.removeArm(attacker.alias);
-		if (defender.cur_scale == 0) pDef.removeArm(defender.alias);
-	}
+//	public static void checkTotalDestruction(User pAtt, User pDef, Arm attacker, Arm defender) {
+//		if (attacker.cur_scale == 0) pAtt.removeArm(attacker.alias);
+//		if (defender.cur_scale == 0) pDef.removeArm(defender.alias);
+//	}
 	
 	public static void p2Attackp1(ActionEvent event, PlayGround playGround) {
 		
@@ -65,7 +65,7 @@ public class PlayGroundService {
 		fillArmsTables(playGround);
 	}
 
-	public static void fillCombatInfoPane(JTextField pCbAliasTxt,JTextField pCbNameTxt,JTextField pCbCurTxt,
+	private static void fillCombatInfoPane(JTextField pCbAliasTxt,JTextField pCbNameTxt,JTextField pCbCurTxt,
 		JTextField pCbSpTxt,JTextField pCbRaTxt,JTextField pCbGATxt,
 		JTextField pOverviewTxt, JTextField pOutputTxt, JTextField pDefenseTxt,
 		Arm arm) {

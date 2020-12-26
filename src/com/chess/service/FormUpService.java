@@ -27,7 +27,7 @@ public class FormUpService {
 		new PlayGround(formUpTroopFrm.p1, formUpTroopFrm.p2).setVisible(true);
 	}
 	
-	public static void playerDeleteSelectedArm(JTable pArmsTable,User p,JTextField pTcTxt) {
+	private static void playerDeleteSelectedArm(JTable pArmsTable,User p,JTextField pTcTxt) {
 		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
 		int[] rows = pArmsTable.getSelectedRows();
 		
@@ -40,11 +40,10 @@ public class FormUpService {
 		for(int i = 0; i < rows.length; i++) {
 			dtm.removeRow(rows[i]-i);
 		}
-		//p.getInfo();
 		pTcTxt.setText(String.valueOf(cur_cost));
 	}
 	
-	public static void playerAddArm(JTextField pAlias, JTable pArmsTable, JComboBox<Arm> pArmJcb, User p, JTextField pTcTxt) {
+	private static void playerAddArm(JTextField pAlias, JTable pArmsTable, JComboBox<Arm> pArmJcb, User p, JTextField pTcTxt) {
 		DefaultTableModel dtm = (DefaultTableModel) pArmsTable.getModel();
 		Vector<String> v = new Vector<>();
 		String alias = pAlias.getText();
@@ -62,7 +61,13 @@ public class FormUpService {
 		v.add(alias);
 		v.add(arm.name);
 		dtm.addRow(v);
-		//p.getInfo();
+		
+		int pos = 0;
+		while (pos < alias.length()) {
+			if (alias.charAt(pos) >= '0' && alias.charAt(pos) <= '9') break;
+			pos++;
+		}
+		pAlias.setText(alias.substring(0, pos));
 		
 		Integer cur_cost = Integer.parseInt(pTcTxt.getText());
 		cur_cost += arm.cost;
