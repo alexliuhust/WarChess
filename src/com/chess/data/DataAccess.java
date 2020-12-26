@@ -74,6 +74,8 @@ public class DataAccess {
 				arm.defense   = rs.getInt("defense");
 				arm.output    = rs.getInt("output");
 				arm.overview  = rs.getString("overview");
+				arm.anti      = rs.getString("anti");
+				arm.bonus     = rs.getInt("bonus");
 				
 				map.put(arm.name, arm);
 			}

@@ -33,6 +33,9 @@ public class Arm {
 	public Integer output;
 	public String overview;
 	
+	public String anti;
+	public Integer bonus;
+	
 	public Arm() {}
 	
 	/**
@@ -69,6 +72,9 @@ public class Arm {
 		this.overview  = target.overview;
 		this.output    = target.output;
 		this.defense   = target.defense;
+		
+		this.anti      = target.anti;
+		this.bonus     = target.bonus;
 	}
 
 	public String showCurrentScale() {
