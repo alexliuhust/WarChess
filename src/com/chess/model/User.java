@@ -22,18 +22,25 @@ public class User {
 	public List<String[]> getSortedItems() {
 		List<String[]> list = new ArrayList<>();
 		for (String armName : troop.keySet()) {
-			String[] item = new String[6];
+			String[] item = new String[7];
 			item[0] = armName;
 			Arm arm = troop.get(armName);
 			item[1] = arm.name;
-			item[2] = arm.showCurrentScale();
-			item[3] = String.valueOf(arm.speed);
-			item[4] = arm.showRangeAndAmmo();
-			item[5] = arm.showGA();
+			item[2] = arm.categ;
+			item[3] = arm.showCurrentScale();
+			item[4] = String.valueOf(arm.speed);
+			item[5] = arm.showRangeAndAmmo();
+			item[6] = arm.showGA();
 			
 			list.add(item);
 		}
 		Collections.sort(list, (a, b) -> {
+			if (!a[2].equals(b[2])) {
+				return b[2].compareTo(a[2]);
+			}
+			if (!a[1].equals(b[1])) {
+				return a[1].compareTo(b[1]);
+			}
 			return a[0].compareTo(b[0]);
 		});
 		

@@ -236,10 +236,10 @@ public class PlayGround extends JFrame {
 			}
 		});
 		p2ArmsTable.setModel(new DefaultTableModel(new Object[][] {},
-			new String[] {"Alias", "Name", "Cur_scale", "Speed", "Range", "G/A"}) {
+			new String[] {"Alias", "Name", "Categ", "Cur_scale", "Speed", "Range", "G/A"}) {
 			
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false
+				false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -247,10 +247,11 @@ public class PlayGround extends JFrame {
 		});
 		p2ArmsTable.getColumnModel().getColumn(0).setPreferredWidth(30);
 		p2ArmsTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-		p2ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(140);
-		p2ArmsTable.getColumnModel().getColumn(3).setPreferredWidth(20);
-		p2ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(40);
-		p2ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(20);
+		p2ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(30);
+		p2ArmsTable.getColumnModel().getColumn(3).setPreferredWidth(140);
+		p2ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(20);
+		p2ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(30);
+		p2ArmsTable.getColumnModel().getColumn(6).setPreferredWidth(30);
 		scrollPane_1.setViewportView(p2ArmsTable);
 		
 		p1ArmsTable = new JTable();
@@ -261,10 +262,10 @@ public class PlayGround extends JFrame {
 			}
 		});
 		p1ArmsTable.setModel(new DefaultTableModel(new Object[][] {},
-			new String[] {"Alias", "Name", "Cur_scale", "Speed", "Range", "G/A"}) {
+			new String[] {"Alias", "Name", "Categ", "Cur_scale", "Speed", "Range", "G/A"}) {
 			
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false
+				false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -272,10 +273,11 @@ public class PlayGround extends JFrame {
 		});
 		p1ArmsTable.getColumnModel().getColumn(0).setPreferredWidth(30);
 		p1ArmsTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-		p1ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(140);
-		p1ArmsTable.getColumnModel().getColumn(3).setPreferredWidth(20);
-		p1ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(40);
-		p1ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(20);
+		p1ArmsTable.getColumnModel().getColumn(2).setPreferredWidth(30);
+		p1ArmsTable.getColumnModel().getColumn(3).setPreferredWidth(140);
+		p1ArmsTable.getColumnModel().getColumn(4).setPreferredWidth(20);
+		p1ArmsTable.getColumnModel().getColumn(5).setPreferredWidth(30);
+		p1ArmsTable.getColumnModel().getColumn(6).setPreferredWidth(30);
 		scrollPane.setViewportView(p1ArmsTable);
 		
 		contentPane.setLayout(null);

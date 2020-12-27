@@ -55,8 +55,7 @@ public class CalculateHelper {
 			}
 		}
 		else if (attacker.type.equals("ra")) {
-			// If the range damage is from an artillery arm, the default range-armor will be halved
-			if (attacker.categ.equals("art")) left_armor = defender.ra_arm / 2 - attacker.ap;
+			if (attacker.categ.equals("art")) left_armor = defender.ra_arm - attacker.ap - 10;
 			else {
 				// If the attacker's armor-piercing is much larger than the defender's melee armor
 				// the defender will have a high dodge
