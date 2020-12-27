@@ -55,7 +55,9 @@ public class CalculateHelper {
 			}
 		}
 		else if (attacker.type.equals("ra")) {
-			if (attacker.categ.equals("art")) left_armor = defender.ra_arm - attacker.ap - 10;
+			if (attacker.categ.equals("art") && defender.categ.equals("cav")) {
+				left_armor = defender.ra_arm;
+			}
 			else {
 				// If the attacker's armor-piercing is much larger than the defender's melee armor
 				// the defender will have a high dodge
@@ -119,7 +121,7 @@ public class CalculateHelper {
 			// If the defender is an air arm, 
 			// the artillery damage will be highly attenuated
 			if (defender.ga.equals("a")) 
-				total_damage /= 3;
+				total_damage /= 5;
 			
 			if ((defender.cur_scale + 0.0) / (defender.scale + 0.0) < 0.1) {
 				total_damage /= 7;
