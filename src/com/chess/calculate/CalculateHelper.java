@@ -16,9 +16,11 @@ public class CalculateHelper {
 		int total_damage = defender.d_dama * defender.cur_scale;
 		
 		// Calculate how much the attacker's armor can do
-		int left_armor = attacker.me_arm - defender.d_ap;
-		if (defender.d_ap > 50 && attacker.me_arm < 30) {
-			left_armor = attacker.me_arm + 30;
+		int left_armor = 0;
+		if (attacker.me_arm >= 0) {
+			left_armor = attacker.me_arm - defender.d_ap;
+		} else { // melee dodge
+			left_armor = -attacker.me_arm;
 		}
 		if (left_armor < 0) left_armor /= 5;
 		
@@ -54,7 +56,7 @@ public class CalculateHelper {
 		}
 		else if (attacker.type.equals("ra")) {
 			if (attacker.categ.equals("art") && defender.categ.equals("cav")) {
-				left_armor = defender.ra_arm;
+				left_armor = Math.abs(defender.ra_arm);
 			}
 			else {
 				if (defender.ra_arm >= 0) {

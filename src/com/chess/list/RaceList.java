@@ -12,6 +12,8 @@ public class RaceList {
 		list.add("Greenfield");
 		list.add("Coral City");
 		list.add("Demon Hill");
+		list.add("Snow Fort");
+		
 	}
 	public List<String> getRaces() {
 		return this.list;
