@@ -113,7 +113,18 @@ public class Arm {
 	
 	@Override
 	public String toString() {
-		return name + " [$" + cost + "]";
+		String categ = new String();
+		if (this.categ.equals("inf")) {
+			categ = "Infantry";
+			if (range > 0) 
+				categ = "Archer";
+		} 
+		else if (this.categ.equals("cav"))
+			categ = "Cavalry";
+		else 
+			categ = "Artillery";
+		
+		return name + " [" + categ + " -- $" + cost + "]";
 	}
 	
 }
