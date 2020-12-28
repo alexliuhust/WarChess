@@ -46,12 +46,10 @@ public class CalculateHelper {
 		
 		int left_armor = 0;
 		if (attacker.type.equals("me")) {
-			// If the attacker's armor-piercing is much larger than the defender's melee armor
-			// the defender will have a high dodge
-			if (attacker.ap > 50 && defender.me_arm < 30) {
-				left_armor = defender.me_arm + 30;
-			} else {
+			if (defender.me_arm >= 0) {
 				left_armor = defender.me_arm - attacker.ap;
+			} else { // melee dodge
+				left_armor = -defender.me_arm;
 			}
 		}
 		else if (attacker.type.equals("ra")) {
@@ -59,20 +57,18 @@ public class CalculateHelper {
 				left_armor = defender.ra_arm;
 			}
 			else {
-				// If the attacker's armor-piercing is much larger than the defender's melee armor
-				// the defender will have a high dodge
-				if (attacker.ap > 50 && defender.ra_arm < 30) {
-					left_armor = defender.ra_arm + 30;
-				} else {
+				if (defender.ra_arm >= 0) {
 					left_armor = defender.ra_arm - attacker.ap;
+				} else { // range dodge
+					left_armor = -defender.ra_arm;
 				}
 			}
 		}
 		else {
-			if (defender.ch_arm > 50) {
-				left_armor = defender.ch_arm;
-			} else {
+			if (defender.ch_arm >= 0) {
 				left_armor = defender.ch_arm - attacker.ap;
+			} else { // charge dodge
+				left_armor = -defender.ch_arm;
 			}
 			
 		}

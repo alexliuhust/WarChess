@@ -21,7 +21,7 @@ public class Calculate {
 		// Calculate the total damage after damage attenuation and instability
 		int total_damage = attacker.dama * attacker.cur_scale;
 		// Calculate damage bonus
-		if (attacker.anti.equals(defender.categ)) {
+		if (attacker.anti.equals(defender.categ) || attacker.anti.equals(defender.ga)) {
 			total_damage += (total_damage * attacker.bonus / 100);
 		}
 		total_damage = CalculateHelper.damageInstability(attacker, defender, total_damage);
